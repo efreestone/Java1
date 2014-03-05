@@ -1,0 +1,8 @@
+package com.elijahfreestone.java1project1;
+
+public class Snippet {
+	public static void main(String[] args) {
+		com.elijahfreestone.java1project1
+	}
+}
+
