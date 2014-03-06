@@ -32,6 +32,11 @@ public class MainActivity extends Activity {
 		myLayout.setOrientation(LinearLayout.VERTICAL);
 		//Set my layout parameters to match the parent item
 		myLayout.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
+		
+		//Create left margin params
+		LinearLayout.LayoutParams leftMarginParams = new LinearLayout.LayoutParams(
+                LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+        leftMarginParams.leftMargin = 250;
         
         //Create center params used to center various items
         LinearLayout.LayoutParams centerParams = new LinearLayout.LayoutParams(
@@ -48,20 +53,10 @@ public class MainActivity extends Activity {
         //Add title with centered params
         myLayout.addView(titleView, centerParams);
         
-        //Create margin params
-      	LinearLayout.LayoutParams marginParams = new LinearLayout.LayoutParams(
-      			LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
-      	//Set margins to 150. Not the most graceful way to set width but edit text doesn't seem to respond to setWidth
-      	marginParams.leftMargin = 150;
-      	marginParams.rightMargin = 150;
-        
         //Create text view
         EditText costText = new EditText(this);
-        //Set hint text
-        costText.setHint("Total cost of meal");
-        
-        //Add cost edit text to my layout with width set by margin params
-        myLayout.addView(costText, centerParams);
+        //
+        myLayout.addView(costText);
         
         //Create Rating bar to rate service
         RatingBar serviceRating = new RatingBar(this);

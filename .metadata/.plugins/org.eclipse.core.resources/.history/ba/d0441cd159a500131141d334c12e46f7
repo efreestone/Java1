@@ -59,9 +59,8 @@ public class MainActivity extends Activity {
         EditText costText = new EditText(this);
         //Set hint text
         costText.setHint("Total cost of meal");
-        
         //Add cost edit text to my layout with width set by margin params
-        myLayout.addView(costText, centerParams);
+        myLayout.addView(costText, marginParams);
         
         //Create Rating bar to rate service
         RatingBar serviceRating = new RatingBar(this);
