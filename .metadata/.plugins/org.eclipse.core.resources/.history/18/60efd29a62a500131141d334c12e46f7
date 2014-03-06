@@ -23,8 +23,6 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup.LayoutParams;
 
 public class MainActivity extends Activity {
-	//Declare tip display text view
-	TextView tipDisplay;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -89,9 +87,8 @@ public class MainActivity extends Activity {
         myLayout.addView(calculateButton, centerParams);
         
         //Create tip display text view
-        tipDisplay = new TextView(this);
+        TextView tipDisplay = new TextView(this);
         tipDisplay.setText("Tip will display here");
-        myLayout.addView(tipDisplay, centerParams);
         
         //Create onClick event for calculate button
         calculateButton.setOnClickListener(new OnClickListener() {

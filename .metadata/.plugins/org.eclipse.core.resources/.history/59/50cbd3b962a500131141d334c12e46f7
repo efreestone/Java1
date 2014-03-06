@@ -91,7 +91,6 @@ public class MainActivity extends Activity {
         //Create tip display text view
         tipDisplay = new TextView(this);
         tipDisplay.setText("Tip will display here");
-        myLayout.addView(tipDisplay, centerParams);
         
         //Create onClick event for calculate button
         calculateButton.setOnClickListener(new OnClickListener() {
