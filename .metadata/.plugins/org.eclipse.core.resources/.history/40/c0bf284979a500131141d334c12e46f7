@@ -31,8 +31,6 @@ public class MainActivity extends Activity {
 	int enteredCost;
 	//Declare rating bar
 	RatingBar serviceRatingBar;
-	//Declare service rating float
-	float serviceRatingFloat;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -119,11 +117,9 @@ public class MainActivity extends Activity {
 					//Display Resource string
 					tipDisplay.setText(noCostString);
 				} else {
-					//Grab service rating
-					serviceRatingFloat = serviceRatingBar.getRating();
-					//Parse int from cost entered string
+					int serviceRating = serviceRatingBar.getNumStars();
 					enteredCost = Integer.parseInt(enteredString);
-					tipDisplay.setText("Entered cost = $" + enteredCost + " rating: " + serviceRatingFloat);
+					tipDisplay.setText("Entered cost = $" + enteredCost + "rating: " + serviceRating);
 				}
 			}
 		});

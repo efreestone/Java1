@@ -119,9 +119,7 @@ public class MainActivity extends Activity {
 					//Display Resource string
 					tipDisplay.setText(noCostString);
 				} else {
-					//Grab service rating
 					serviceRatingFloat = serviceRatingBar.getRating();
-					//Parse int from cost entered string
 					enteredCost = Integer.parseInt(enteredString);
 					tipDisplay.setText("Entered cost = $" + enteredCost + " rating: " + serviceRatingFloat);
 				}

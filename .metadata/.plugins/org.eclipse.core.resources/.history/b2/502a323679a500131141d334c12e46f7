@@ -29,10 +29,6 @@ public class MainActivity extends Activity {
 	TextView tipDisplay;
 	//Declare entered cost int
 	int enteredCost;
-	//Declare rating bar
-	RatingBar serviceRatingBar;
-	//Declare service rating float
-	float serviceRatingFloat;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -86,9 +82,9 @@ public class MainActivity extends Activity {
         myLayout.addView(ratingsTitleView, topMarginParams);
         
         //Create Rating bar to rate service
-        serviceRatingBar = new RatingBar(this);
+        RatingBar serviceRating = new RatingBar(this);
         //Add rating bar to my layout with centered params
-        myLayout.addView(serviceRatingBar, centerParams);
+        myLayout.addView(serviceRating, centerParams);
 
         //Create calculate button
         Button calculateButton = new Button(this);
@@ -114,16 +110,13 @@ public class MainActivity extends Activity {
 				//Grab cost input from edit text field
 				String enteredString = costText.getText().toString();
 				if (costText.getText().toString().equals("")) {
-					//Grab string from noCostEntered Resource XML file
+					//Grab string from no cost entered Resource XML file
 					String noCostString = getResources().getString(R.string.noCostResString);
 					//Display Resource string
 					tipDisplay.setText(noCostString);
 				} else {
-					//Grab service rating
-					serviceRatingFloat = serviceRatingBar.getRating();
-					//Parse int from cost entered string
 					enteredCost = Integer.parseInt(enteredString);
-					tipDisplay.setText("Entered cost = $" + enteredCost + " rating: " + serviceRatingFloat);
+					tipDisplay.setText("Entered cost = $" + enteredCost);
 				}
 			}
 		});
