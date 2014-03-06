@@ -15,7 +15,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import android.app.Activity;
-import android.text.Editable;
 import android.text.InputType;
 import android.view.Gravity;
 import android.view.View;
@@ -27,8 +26,6 @@ import android.view.ViewGroup.LayoutParams;
 public class MainActivity extends Activity {
 	//Declare tip display text view
 	TextView tipDisplay;
-	//Declare entered cost int
-	int enteredCost;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -57,11 +54,11 @@ public class MainActivity extends Activity {
         myLayout.addView(titleView, centerParams);
         
         //Create text view
-        final EditText costText = new EditText(this);
+        EditText costText = new EditText(this);
         //Set hint text
         costText.setHint("Cost, rounded to nearest dollar");
         //Set input type to number. This is an integer so cost entered needs to be whole number as of now.
-        costText.setInputType(InputType.TYPE_CLASS_NUMBER); //| InputType.TYPE_NUMBER_FLAG_DECIMAL
+        costText.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL); //| InputType.TYPE_NUMBER_FLAG_DECIMAL
         
         //Add cost edit text to my layout with width set by center params and the width of Hint
         myLayout.addView(costText, centerParams);
@@ -107,19 +104,8 @@ public class MainActivity extends Activity {
 			
 			@Override
 			public void onClick(View v) {
-				String enteredString = costText.getText().toString();
-				enteredCost = Integer.parseInt(enteredString);
-				tipDisplay.setText("Entered cost = $" + enteredCost);
+				tipDisplay.setText("click works");
 			}
-			
-			/*String no=myTxt.getText().toString();       //this will get a string                               
-      int no2=Integer.parseInt(no); */
-
-			/*private int valueOf(Editable text) {
-				//enteredCost = valueOf(costText.getText());
-				tipDisplay.setText("Entered cost = $" + enteredCost);
-				return enteredCost;
-			}*/
 		});
         
 		setContentView(myLayout); //R.layout.activity_main
