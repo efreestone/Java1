@@ -48,6 +48,13 @@ public class MainActivity extends Activity {
         //Add title with centered params
         myLayout.addView(titleView, centerParams);
         
+        //Create margin params
+      	LinearLayout.LayoutParams marginParams = new LinearLayout.LayoutParams(
+      			LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
+      	//Set margins to 150. Not the most graceful way to set width but edit text doesn't seem to respond to setWidth
+      	marginParams.leftMargin = 150;
+      	marginParams.rightMargin = 150;
+        
         //Create text view
         EditText costText = new EditText(this);
         //Set hint text
@@ -61,7 +68,7 @@ public class MainActivity extends Activity {
       	//Set gravity to center text view
       	topMarginParams.gravity = Gravity.CENTER;
       	//Set top margin to seperate ratings label from the edit text
-      	topMarginParams.topMargin = 30;
+      	topMarginParams.topMargin = 20;
         //Create ratings title text view
         TextView ratingsTitleView = new TextView(this);
         //Set text for title
