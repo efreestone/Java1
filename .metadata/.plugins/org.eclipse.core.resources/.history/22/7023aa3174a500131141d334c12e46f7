@@ -1,0 +1,4 @@
+
+    <resources>
+        <string name="noCostEntered">Please enter in a rounded cost a try again</string>
+    </resources>

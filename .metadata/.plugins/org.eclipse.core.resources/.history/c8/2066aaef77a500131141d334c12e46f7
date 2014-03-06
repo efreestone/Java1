@@ -110,9 +110,8 @@ public class MainActivity extends Activity {
 				//Grab cost input from edit text field
 				String enteredString = costText.getText().toString();
 				if (costText.getText().toString().equals("")) {
-					//Grab string from no cost entered Resource XML file
+					
 					String noCostString = getResources().getString(R.string.noCostResString);
-					//Display Resource string
 					tipDisplay.setText(noCostString);
 				} else {
 					enteredCost = Integer.parseInt(enteredString);

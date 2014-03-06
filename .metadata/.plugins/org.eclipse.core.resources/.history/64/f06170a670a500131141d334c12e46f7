@@ -15,6 +15,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import android.app.Activity;
+import android.text.Editable;
 import android.text.InputType;
 import android.view.Gravity;
 import android.view.View;
@@ -24,7 +25,6 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup.LayoutParams;
 
 public class MainActivity extends Activity {
-	//Global variables
 	//Declare tip display text view
 	TextView tipDisplay;
 	//Declare entered cost int
@@ -107,18 +107,19 @@ public class MainActivity extends Activity {
 			
 			@Override
 			public void onClick(View v) {
-				//Grab cost input from edit text field
 				String enteredString = costText.getText().toString();
-				if (costText.getText().toString().equals("")) {
-					//Grab string from no cost entered Resource XML file
-					String noCostString = getResources().getString(R.string.noCostResString);
-					//Display Resource string
-					tipDisplay.setText(noCostString);
-				} else {
-					enteredCost = Integer.parseInt(enteredString);
-					tipDisplay.setText("Entered cost = $" + enteredCost);
-				}
+				enteredCost = Integer.parseInt(enteredString);
+				tipDisplay.setText("Entered cost = $" + enteredCost);
 			}
+			
+			/*String no=myTxt.getText().toString();       //this will get a string                               
+      int no2=Integer.parseInt(no); */
+
+			/*private int valueOf(Editable text) {
+				//enteredCost = valueOf(costText.getText());
+				tipDisplay.setText("Entered cost = $" + enteredCost);
+				return enteredCost;
+			}*/
 		});
         
 		setContentView(myLayout); //R.layout.activity_main
