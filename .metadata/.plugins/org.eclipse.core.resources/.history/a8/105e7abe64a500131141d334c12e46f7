@@ -56,7 +56,7 @@ public class MainActivity extends Activity {
         //Create text view
         EditText costText = new EditText(this);
         //Set hint text
-        costText.setHint("Cost, rounded to nearest dollar");
+        costText.setHint("Total cost rounded to nearest dollar");
         //Set input type to number
         costText.setInputType(InputType.TYPE_CLASS_NUMBER);
         

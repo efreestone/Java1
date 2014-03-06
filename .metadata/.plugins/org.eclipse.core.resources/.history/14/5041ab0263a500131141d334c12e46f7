@@ -15,7 +15,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import android.app.Activity;
-import android.text.InputType;
 import android.view.Gravity;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -56,10 +55,7 @@ public class MainActivity extends Activity {
         //Create text view
         EditText costText = new EditText(this);
         //Set hint text
-        costText.setHint("Cost, rounded to nearest dollar");
-        //Set input type to number
-        costText.setInputType(InputType.TYPE_CLASS_NUMBER);
-        
+        costText.setHint("Total cost of meal");
         //Add cost edit text to my layout with width set by center params and the width of Hint
         myLayout.addView(costText, centerParams);
         
@@ -94,10 +90,8 @@ public class MainActivity extends Activity {
         
         //Create tip display text view
         tipDisplay = new TextView(this);
-        //Set default text
         tipDisplay.setText("Tip will display here");
-        //Add tip display to my layout with top margin params
-        myLayout.addView(tipDisplay, topMarginParams);
+        myLayout.addView(tipDisplay, centerParams);
         
         //Create onClick event for calculate button
         calculateButton.setOnClickListener(new OnClickListener() {
@@ -105,6 +99,7 @@ public class MainActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				tipDisplay.setText("click works");
+				
 			}
 		});
         
