@@ -1,0 +1,48 @@
+//Elijah Freestone
+//Java 1 term 1403
+//Week 1
+//March 4th, 2014
+
+package com.elijahfreestone.java1project1;
+
+import android.os.Bundle;
+//Import linear layout widget
+import android.widget.LinearLayout;
+//Import text view widget
+import android.widget.TextView;
+
+import android.app.Activity;
+import android.view.Menu;
+//Import layout params 
+import android.view.ViewGroup.LayoutParams;
+
+public class MainActivity extends Activity {
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		
+		//Create linear layout instance
+		LinearLayout myLayout = new LinearLayout(this);
+		//Set orientation
+		myLayout.setOrientation(LinearLayout.VERTICAL);
+		//myLayout.setLayoutParams(new LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT));
+
+        TextView titleView = new TextView(this);
+        LayoutParams lparams = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+        titleView.setLayoutParams(lparams);
+        titleView.setTextAppearance(this, android.R.attr.textAppearanceLarge);
+        titleView.setText("Hallo Welt!");
+        myLayout.addView(titleView);
+		
+		setContentView(myLayout); //R.layout.activity_main
+	}
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.main, menu);
+		return true;
+	}
+
+}
