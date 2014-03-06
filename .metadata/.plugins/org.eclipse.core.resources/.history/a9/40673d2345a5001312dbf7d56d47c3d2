@@ -31,12 +31,12 @@ public class MainActivity extends Activity {
 		//Set my layout parameters to match the parent item
 		myLayout.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
 		
-		//Create left margin params
+		//Create left margin param
 		LinearLayout.LayoutParams leftMarginParams = new LinearLayout.LayoutParams(
                 LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
         leftMarginParams.leftMargin = 250;
         
-        //Create center params used to center various items
+        //Create center param used to center various items
         LinearLayout.LayoutParams centerParams = new LinearLayout.LayoutParams(
                 LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
         //Set gravity to center
@@ -44,20 +44,20 @@ public class MainActivity extends Activity {
 
 		//Create title text view
         TextView titleView = new TextView(this);
+        //Set parameters for the title
+        LayoutParams titleParams = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+        //Pass layout param for title
+        titleView.setLayoutParams(titleParams);
         //Set text appearance for title
         titleView.setTextAppearance(this, android.R.attr.textAppearanceLarge);
         //Set text for title
         titleView.setText("Tip Calculator");
-        //Add title with centered params
+        //Add centered title
         myLayout.addView(titleView, centerParams);
 
         //Create calculate button
         Button calculateButton = new Button(this);
-        //Set button text
         calculateButton.setText("Calculate Tip");
-        //Set width of the button
-        calculateButton.setWidth(500);
-        //Add button to my layout with centered params
         myLayout.addView(calculateButton, centerParams);
 		
 		setContentView(myLayout); //R.layout.activity_main
