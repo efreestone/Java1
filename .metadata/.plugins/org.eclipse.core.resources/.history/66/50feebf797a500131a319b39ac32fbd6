@@ -136,25 +136,8 @@ public class MainActivity extends Activity {
 					serviceRatingFloat = serviceRatingBar.getRating();
 					//Implicitly cast service rating float to int
 					int serviceRating = (int)serviceRatingFloat;
-					
-					//Switch statement to set tip percentage based on star rating. Half stars are rounded down
-					switch (serviceRating) {
-						//1-1.5 star selected, set tipPercent to %5
-						case 1: tipPercent = 0.05f; break;
-						//2-2.5 star selected, set tipPercent to %10
-						case 2: tipPercent = 0.1f; break;
-						//3-3.5 star selected, set tipPercent to %15
-						case 3: tipPercent = 0.15f; break;
-						//4-4.5 star selected, set tipPercent to %20
-						case 4: tipPercent = 0.2f; break;
-						//5 star selected, set tipPercent to %25
-						case 5: tipPercent = 0.25f; break;
-						//No star selected, set tipPercent to %1
-						default: tipPercent = 0.01f; break;
-					}
-					
 					//if/elseif to set tip percentage based on rating. Half star ratings are rounded down
-					/*if (serviceRating == 1) {
+					if (serviceRating == 1) {
 						tipPercent = 0.05f;
 					} else if (serviceRating == 2) {
 						tipPercent = 0.1f;
@@ -166,12 +149,22 @@ public class MainActivity extends Activity {
 						tipPercent = 0.25f;
 					} else {
 						tipPercent = 0.15f;
-					}*/
+					}
 					//Parse int from cost entered string
 					enteredCost = Integer.parseInt(enteredString);
 					
-					//Call method/function to calculate tip and display
 					MainActivity.calculateTip();
+					
+					/*public void calculateTip() {
+					//Do/while loop to calculate and display tip amount based on cost and rating
+						do {
+							float enteredCostFloat = enteredCost;
+							//Multiply entered cost int by tip percentage
+							tipAmountFloat = enteredCostFloat * tipPercent;
+							//Display tip rating and tip amount
+							tipDisplay.setText("For a rating of " + serviceRatingFloat + ", your tip should be $" + tipAmountFloat);
+						} while (costEnteredBool == false);
+					}*/
 					
 					//tipDisplay.setText("Entered cost = $" + tipAmountFloat + " rating: " + serviceRatingFloat);
 				}
@@ -181,7 +174,6 @@ public class MainActivity extends Activity {
 		setContentView(myLayout); //R.layout.activity_main
 	}
 	
-	//Custom method/function to calculate tip based on cost entered and rating given, then display it
 	public static void calculateTip() {
 		//Do/while loop to calculate and display tip amount based on cost and rating
 			do {
