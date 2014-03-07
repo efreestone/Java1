@@ -29,18 +29,10 @@ public class MainActivity extends Activity {
 	TextView tipDisplay;
 	//Declare entered cost int
 	int enteredCost;
-	//Declare enterd cost string
-	String enteredString;
-	//Declare cost entered boolean
-	boolean costEnteredBool;
 	//Declare rating bar
 	RatingBar serviceRatingBar;
 	//Declare service rating float
 	float serviceRatingFloat;
-	//Declare multiplier for tip calculation
-	float tipPercent;
-	//Declare tip amount float
-	float tipAmountFloat;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -120,47 +112,18 @@ public class MainActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				//Grab cost input from edit text field
-				enteredString = costText.getText().toString();
-				//Check if a cost amount has been entered
+				String enteredString = costText.getText().toString();
 				if (costText.getText().toString().equals("")) {
-					//Grab string from noCostEntered Resource XML file and cast to local variable
+					//Grab string from noCostEntered Resource XML file
 					String noCostString = getResources().getString(R.string.noCostResString);
 					//Display Resource string
 					tipDisplay.setText(noCostString);
-					//tipDisplay.setTextColor("#rgb");
 				} else {
-					costEnteredBool = true;
 					//Grab service rating
 					serviceRatingFloat = serviceRatingBar.getRating();
-					//Implicitly cast service rating float to int
-					int serviceRating = (int)serviceRatingFloat;
-					//if/elseif to set tip percentage based on rating. Half star ratings are rounded down
-					if (serviceRating == 1) {
-						tipPercent = 0.05f;
-					} else if (serviceRating == 2) {
-						tipPercent = 0.1f;
-					} else if (serviceRating == 3) {
-						tipPercent = 0.15f;
-					} else if (serviceRating == 4) {
-						tipPercent = 0.2f;
-					} else if (serviceRating == 5) {
-						tipPercent = 0.25f;
-					} else {
-						tipPercent = 0.15f;
-					}
 					//Parse int from cost entered string
 					enteredCost = Integer.parseInt(enteredString);
-					
-					//Do/while loop
-					do {
-						float enteredCostFloat = enteredCost;
-						//Multiply entered cost int by tip percentage
-						tipAmountFloat = enteredCostFloat * tipPercent;
-						//Display tip rating and tip amount
-						tipDisplay.setText("For a rating of " + serviceRatingFloat + ", your tip should be $" + tipAmountFloat);
-					} while (costEnteredBool == false);
-					
-					//tipDisplay.setText("Entered cost = $" + tipAmountFloat + " rating: " + serviceRatingFloat);
+					tipDisplay.setText("Entered cost = $" + enteredCost + " rating: " + serviceRatingFloat);
 				}
 			}
 		});

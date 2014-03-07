@@ -158,7 +158,7 @@ public class MainActivity extends Activity {
 						tipAmountFloat = enteredCostFloat * tipPercent;
 						//Display tip rating and tip amount
 						tipDisplay.setText("For a rating of " + serviceRatingFloat + ", your tip should be $" + tipAmountFloat);
-					} while (costEnteredBool == false);
+					} while (costEnteredBool != true);
 					
 					//tipDisplay.setText("Entered cost = $" + tipAmountFloat + " rating: " + serviceRatingFloat);
 				}

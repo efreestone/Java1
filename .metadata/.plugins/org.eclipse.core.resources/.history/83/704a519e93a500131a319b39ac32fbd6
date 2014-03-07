@@ -156,9 +156,9 @@ public class MainActivity extends Activity {
 						float enteredCostFloat = enteredCost;
 						//Multiply entered cost int by tip percentage
 						tipAmountFloat = enteredCostFloat * tipPercent;
-						//Display tip rating and tip amount
+						
 						tipDisplay.setText("For a rating of " + serviceRatingFloat + ", your tip should be $" + tipAmountFloat);
-					} while (costEnteredBool == false);
+					} while (costEnteredBool != true);
 					
 					//tipDisplay.setText("Entered cost = $" + tipAmountFloat + " rating: " + serviceRatingFloat);
 				}
