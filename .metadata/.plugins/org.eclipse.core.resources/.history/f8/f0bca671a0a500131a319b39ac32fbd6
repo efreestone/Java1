@@ -15,6 +15,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import android.app.Activity;
+import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.text.InputType;
 import android.view.Gravity;
@@ -104,7 +105,7 @@ public class MainActivity extends Activity {
         calculateButton.setText("Calculate Tip");
         //Set width of the button
         calculateButton.setWidth(500);
-        //Add button to my layout with centered params
+        //Add button to my layout with centered param
         myLayout.addView(calculateButton, centerParams);
         
         //Create tip display text view
@@ -129,6 +130,7 @@ public class MainActivity extends Activity {
 					tipDisplay.setTextColor(Color.RED);
 					//Display Resource string
 					tipDisplay.setText(noCostString);
+					//tipDisplay.setTextColor("#rgb");
 				} else {
 					costEnteredBool = true;
 					//Grab service rating
@@ -161,7 +163,7 @@ public class MainActivity extends Activity {
 			}
 		});
         
-		setContentView(myLayout); 
+		setContentView(myLayout); //R.layout.activity_main
 	}
 	
 	//Custom method/function to calculate tip based on cost entered and rating given, then display it

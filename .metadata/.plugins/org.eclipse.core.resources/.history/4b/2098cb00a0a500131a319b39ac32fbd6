@@ -15,6 +15,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import android.app.Activity;
+import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.text.InputType;
 import android.view.Gravity;
@@ -125,10 +126,10 @@ public class MainActivity extends Activity {
 				if (costText.getText().toString().equals("")) {
 					//Grab string from noCostEntered Resource XML file and cast to local variable
 					String noCostString = getResources().getString(R.string.noCostResString);
-					//Set text color to red
 					tipDisplay.setTextColor(Color.RED);
 					//Display Resource string
 					tipDisplay.setText(noCostString);
+					//tipDisplay.setTextColor("#rgb");
 				} else {
 					costEnteredBool = true;
 					//Grab service rating
@@ -161,7 +162,7 @@ public class MainActivity extends Activity {
 			}
 		});
         
-		setContentView(myLayout); 
+		setContentView(myLayout); //R.layout.activity_main
 	}
 	
 	//Custom method/function to calculate tip based on cost entered and rating given, then display it

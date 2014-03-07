@@ -129,6 +129,7 @@ public class MainActivity extends Activity {
 					tipDisplay.setTextColor(Color.RED);
 					//Display Resource string
 					tipDisplay.setText(noCostString);
+					//tipDisplay.setTextColor("#rgb");
 				} else {
 					costEnteredBool = true;
 					//Grab service rating

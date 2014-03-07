@@ -90,7 +90,7 @@ public class MainActivity extends Activity {
         TextView ratingsTitleView = new TextView(this);
         //Set text for title
         ratingsTitleView.setText("Rate Service");
-        //Add ratings title with centered params
+        //Add ratings title with centered param
         myLayout.addView(ratingsTitleView, topMarginParams);
         
         //Create Rating bar to rate service
@@ -129,6 +129,7 @@ public class MainActivity extends Activity {
 					tipDisplay.setTextColor(Color.RED);
 					//Display Resource string
 					tipDisplay.setText(noCostString);
+					//tipDisplay.setTextColor("#rgb");
 				} else {
 					costEnteredBool = true;
 					//Grab service rating

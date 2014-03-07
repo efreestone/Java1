@@ -5,6 +5,8 @@
 
 package com.elijahfreestone.java1project1;
 
+import java.security.PublicKey;
+
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -15,11 +17,11 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import android.app.Activity;
-import android.graphics.Color;
 import android.text.InputType;
 import android.view.Gravity;
 import android.view.View;
 import android.view.View.OnClickListener;
+//import android.view.Menu;
 //Import layout params 
 import android.view.ViewGroup.LayoutParams;
 
@@ -83,7 +85,7 @@ public class MainActivity extends Activity {
       			LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
       	//Set gravity to center text view
       	topMarginParams.gravity = Gravity.CENTER;
-      	//Set top margin to separate ratings label from the edit text
+      	//Set top margin to seperate ratings label from the edit text
       	topMarginParams.topMargin = 30;
       	
         //Create ratings title text view
@@ -125,10 +127,9 @@ public class MainActivity extends Activity {
 				if (costText.getText().toString().equals("")) {
 					//Grab string from noCostEntered Resource XML file and cast to local variable
 					String noCostString = getResources().getString(R.string.noCostResString);
-					//Set text color to red
-					tipDisplay.setTextColor(Color.RED);
 					//Display Resource string
 					tipDisplay.setText(noCostString);
+					//tipDisplay.setTextColor("#rgb");
 				} else {
 					costEnteredBool = true;
 					//Grab service rating
@@ -152,23 +153,38 @@ public class MainActivity extends Activity {
 						default: tipPercent = 0.01f; break;
 					}
 					
+					//if/elseif to set tip percentage based on rating. Half star ratings are rounded down
+					/*if (serviceRating == 1) {
+						tipPercent = 0.05f;
+					} else if (serviceRating == 2) {
+						tipPercent = 0.1f;
+					} else if (serviceRating == 3) {
+						tipPercent = 0.15f;
+					} else if (serviceRating == 4) {
+						tipPercent = 0.2f;
+					} else if (serviceRating == 5) {
+						tipPercent = 0.25f;
+					} else {
+						tipPercent = 0.15f;
+					}*/
 					//Parse int from cost entered string
 					enteredCost = Integer.parseInt(enteredString);
 					
 					//Call method/function to calculate tip and display
 					MainActivity.calculateTip();
+					
+					//tipDisplay.setText("Entered cost = $" + tipAmountFloat + " rating: " + serviceRatingFloat);
 				}
 			}
 		});
         
-		setContentView(myLayout); 
+		setContentView(myLayout); //R.layout.activity_main
 	}
 	
 	//Custom method/function to calculate tip based on cost entered and rating given, then display it
 	public static void calculateTip() {
 		//Do/while loop to calculate and display tip amount based on cost and rating
 			do {
-				//Cast enteredCost into float
 				float enteredCostFloat = enteredCost;
 				//Multiply entered cost int by tip percentage
 				tipAmountFloat = enteredCostFloat * tipPercent;
