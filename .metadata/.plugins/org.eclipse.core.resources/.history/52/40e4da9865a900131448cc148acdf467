@@ -28,8 +28,6 @@ public class MainActivity extends Activity {
 		//Grab cities array from strings.xml resource file
 		citiesArray = getResources().getStringArray(R.array.cities_array);
 		
-		//Think git is having issues. May have to stop committing for a bit.
-		
 		//Create linear layout instance
 				LinearLayout myLayout = new LinearLayout(this);
 				//Set orientation
