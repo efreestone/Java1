@@ -11,22 +11,12 @@ import android.view.ViewGroup.LayoutParams;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.app.Activity;
-import android.content.Context;
 
 public class MainActivity extends Activity {
-	//Declare context
-	Context myContext;
-	//Declare array of cities
-	String[] citiesArray;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		
-		//Initialize context and cities array
-		myContext = this;
-		//Grab cities array from strings.xml resource file
-		citiesArray = getResources().getStringArray(R.array.cities_array);
 		
 		//Create linear layout instance
 				LinearLayout myLayout = new LinearLayout(this);
