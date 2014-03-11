@@ -91,7 +91,7 @@ public class MainActivity extends Activity {
 			}
 		});
       	
-      	/*//Create list adapter
+      	//Create list adapter
       	ArrayAdapter<String> listAdapter = new ArrayAdapter<String>(myContext, android.R.layout.simple_list_item_1, citiesArray);
       	
       	//Create list view
@@ -108,10 +108,10 @@ public class MainActivity extends Activity {
 			public void onItemClick(AdapterView<?> parent, View view, int position,
 					long id) {
 				//Create toast to test spinner selection
-				Toast.makeText(myContext, "You have selected " + citiesArray[position] + " from list view", Toast.LENGTH_LONG).show();
+				Toast.makeText(myContext, "You have selected " + citiesArray[position] + "from list view", Toast.LENGTH_LONG).show();
 								
 			}
-		});*/
+		});
 		
 		setContentView(myLayout); 
 		//setContentView(R.layout.activity_main);
