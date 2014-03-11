@@ -30,6 +30,16 @@ public class MainActivity extends Activity {
 		//Grab cities array from strings.xml resource file
 		citiesArray = getResources().getStringArray(R.array.cities_array);
 		
+		//Create spinner adapter
+		ArrayAdapter<String> citySpinnerAdapter = new ArrayAdapter<String>(myContext, android.R.layout.simple_spinner_item);
+		//Set dropdown of city spinner
+		citySpinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		
+		//Create city spinner
+		Spinner citySpinner = new Spinner(myContext);
+		//Set adapter
+		citySpinner.setAdapter(citySpinnerAdapter);
+		
 		//Create linear layout instance
 		LinearLayout myLayout = new LinearLayout(this);
 		//Set orientation
@@ -51,19 +61,6 @@ public class MainActivity extends Activity {
         titleView.setText("Tip Calculator");
         //Add title with centered params
         myLayout.addView(titleView, centerParams);
-        
-        //Create spinner adapter
-      	ArrayAdapter<String> citySpinnerAdapter = new ArrayAdapter<String>(myContext, android.R.layout.simple_spinner_item, citiesArray);
-      	//Set dropdown of city spinner
-      	citySpinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-      		
-      	//Create city spinner
-      	Spinner citySpinner = new Spinner(myContext);
-      	//Set adapter
-      	citySpinner.setAdapter(citySpinnerAdapter);
-      	LayoutParams spinnerParams = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
-      	citySpinner.setLayoutParams(spinnerParams);
-      	myLayout.addView(citySpinner);
 		
 		setContentView(myLayout); 
 		//setContentView(R.layout.activity_main);
