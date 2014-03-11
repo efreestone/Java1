@@ -114,7 +114,7 @@ public class MainActivity extends Activity {
 			}
 		});*/
       	
-      	/*//Create grid view adapter
+      	//Create grid view adapter
       	ArrayAdapter<String> gridAdapter = new ArrayAdapter<String>(myContext, android.R.layout.simple_list_item_1, citiesArray);
       	//Create grid view
       	GridView gridView = new GridView(myContext);
@@ -136,7 +136,7 @@ public class MainActivity extends Activity {
 				Toast.makeText(myContext, "You have selected " + citiesArray[position] + " from grid view", Toast.LENGTH_LONG).show();
 				
 			}
-		});*/
+		});
       	
 		
 		setContentView(myLayout); 
