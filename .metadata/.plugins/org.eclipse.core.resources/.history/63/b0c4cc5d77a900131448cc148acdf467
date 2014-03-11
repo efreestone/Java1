@@ -1,0 +1,9 @@
+package com.elijahfreestone.java1project2;
+
+public enum CitiesEnum {
+	LOVELAND,
+	LOSANGELES,
+	NEWYORK,
+	CHICAGO,
+	ORLANDO
+}
