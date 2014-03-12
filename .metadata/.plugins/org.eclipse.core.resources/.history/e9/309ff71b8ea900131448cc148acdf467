@@ -5,21 +5,19 @@
 
 package com.elijahfreestone.java1project2;
 
-//Create enum of cities enhanced with extra fields (strings an floats)
+//Create enum of cities 
 public enum CitiesEnum {
-	LOVELAND("Loveland", "CO", 31.6f, -0.2f),
-	LOSANGELES("Los Angeles", "CA", 68.8f, 20.4f),
-	NEWYORK("New York", "NY", 59.5f, 15.2f),
-	CHICAGO("Chicago", "IL", 38.3f, 3.5f),
-	ORLANDO("Orlando", "FL", 71.7f, 22.0f);
+	LOVELAND("Loveland", "CO", 60.0f, 60.0f),
+	LOSANGELES("Los Angeles", "CA", 60.0f, 60.0f),
+	NEWYORK("New York", "NY", 60.0f, 60.0f),
+	CHICAGO("Chicago", "IL", 60.0f, 60.0f),
+	ORLANDO("Orlando", "FL", 60.0f, 60.0f);
 	
-	//Declare local instance variables
 	private final String cityName;
 	private final String stateName;
 	private final Float fahrTemp;
 	private final Float celsiusTemp;
 	
-	//Create constructor for enum fields
 	private CitiesEnum(String cityName, String stateName, Float fahrTemp, Float celsiusTemp){
 		this.cityName = cityName;
 		this.stateName = stateName;
@@ -28,7 +26,7 @@ public enum CitiesEnum {
 		
 	}
 
-	//Create getters for enum strings/floats
+	//Create getters for 
 	public String getCityName() {
 		return cityName;
 	}

@@ -5,7 +5,7 @@
 
 package com.elijahfreestone.java1project2;
 
-//Create enum of cities enhanced with extra fields (strings an floats)
+//Create enum of cities 
 public enum CitiesEnum {
 	LOVELAND("Loveland", "CO", 31.6f, -0.2f),
 	LOSANGELES("Los Angeles", "CA", 68.8f, 20.4f),
@@ -19,7 +19,6 @@ public enum CitiesEnum {
 	private final Float fahrTemp;
 	private final Float celsiusTemp;
 	
-	//Create constructor for enum fields
 	private CitiesEnum(String cityName, String stateName, Float fahrTemp, Float celsiusTemp){
 		this.cityName = cityName;
 		this.stateName = stateName;
