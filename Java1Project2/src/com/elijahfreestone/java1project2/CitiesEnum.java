@@ -16,16 +16,15 @@ public enum CitiesEnum {
 	//Declare local instance variables
 	private final String cityName;
 	private final String stateName;
-	private final Float fahrTemp;
+	private final Float fahrenheitTemp;
 	private final Float celsiusTemp;
 	
 	//Create constructor for enum fields
-	private CitiesEnum(String cityName, String stateName, Float fahrTemp, Float celsiusTemp){
+	private CitiesEnum(String cityName, String stateName, Float fahrenheitTemp, Float celsiusTemp){
 		this.cityName = cityName;
 		this.stateName = stateName;
-		this.fahrTemp = fahrTemp;
+		this.fahrenheitTemp = fahrenheitTemp;
 		this.celsiusTemp = celsiusTemp;
-		
 	}
 
 	//Create getters for enum strings/floats
@@ -37,8 +36,8 @@ public enum CitiesEnum {
 		return stateName;
 	}
 
-	public Float getFahrTemp() {
-		return fahrTemp;
+	public Float getFahrenheitTemp() {
+		return fahrenheitTemp;
 	}
 
 	public Float getCelsiusTemp() {

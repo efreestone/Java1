@@ -27,6 +27,12 @@ public class MainActivity extends Activity {
 	Context myContext;
 	//Declare array of cities
 	String[] citiesArray;
+	//Declare temp measurment array
+	String[] tempMeasureArray;
+	//Declare selected city
+	String selectedCity;
+	//Declare selected temp measurement
+	String selectedTempMeasurement;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +42,10 @@ public class MainActivity extends Activity {
 		myContext = this;
 		//Grab cities array from strings.xml resource file
 		citiesArray = getResources().getStringArray(R.array.cities_array);
+		//Grab temp measure array for strings.xml resource file
+		tempMeasureArray = getResources().getStringArray(R.array.temp_measurement);
+		//Initialize selected temp measurement (fahrenheit or celsius)
+		//selectedTempMeasurement = "Fahrenheit";
 		
 		//Create linear layout instance
 		LinearLayout myLayout = new LinearLayout(this);
@@ -82,6 +92,11 @@ public class MainActivity extends Activity {
 				//Create toast to test spinner selection
 				Toast.makeText(myContext, "You have selected " + citiesArray[position], Toast.LENGTH_LONG).show();
 				
+				//Set selected city from spinner selection
+//				selectedCity = 
+				//Set temp measurement from grid selection
+//				selectedTempMeasurement = 
+				
 			}
 
 			@Override
@@ -91,51 +106,38 @@ public class MainActivity extends Activity {
 			}
 		});
       	
-      	/*//Create list adapter
-      	ArrayAdapter<String> listAdapter = new ArrayAdapter<String>(myContext, android.R.layout.simple_list_item_1, citiesArray);
+      	//Create measurement title text view
+      	TextView measureTitleView = new TextView(this);
+      	//Set text appearance for title
+      	measureTitleView.setTextAppearance(this, android.R.attr.textAppearanceLarge);
+   		//Set text for title
+      	measureTitleView.setText("Please select units of measurement");
+        //Add title with centered params
+        myLayout.addView(measureTitleView, centerParams);
       	
-      	//Create list view
-      	ListView listView = new ListView(myContext);
-      	listView.setLayoutParams(spinnerParams);
-      	listView.setAdapter(listAdapter);
-      	//Add list view to my layout
-      	myLayout.addView(listView);
-      	
-      	//Set on item click for list view
-      	listView.setOnItemClickListener(new OnItemClickListener() {
-			//Use unimplemented methods, modified as per list view video for better clarity
-			@Override
-			public void onItemClick(AdapterView<?> parent, View view, int position,
-					long id) {
-				//Create toast to test spinner selection
-				Toast.makeText(myContext, "You have selected " + citiesArray[position] + " from list view", Toast.LENGTH_LONG).show();
-								
-			}
-		});*/
-      	
-      	/*//Create grid view adapter
-      	ArrayAdapter<String> gridAdapter = new ArrayAdapter<String>(myContext, android.R.layout.simple_list_item_1, citiesArray);
+      	//Create grid view adapter
+      	ArrayAdapter<String> tempGridAdapter = new ArrayAdapter<String>(myContext, android.R.layout.simple_list_item_1, tempMeasureArray);
       	//Create grid view
-      	GridView gridView = new GridView(myContext);
+      	GridView tempGridView = new GridView(myContext);
       	//Set grid layout params
-      	gridView.setLayoutParams(spinnerParams);
+      	tempGridView.setLayoutParams(spinnerParams);
       	//Set grid to 2 column
-      	gridView.setNumColumns(2);
+      	tempGridView.setNumColumns(2);
       	//Set grid adapter
-      	gridView.setAdapter(gridAdapter);
+      	tempGridView.setAdapter(tempGridAdapter);
       	//Add grid view to my layout
-      	myLayout.addView(gridView);
+      	myLayout.addView(tempGridView);
       	
       	//Set on item click for grid view
-      	gridView.setOnItemClickListener(new OnItemClickListener() {
+      	tempGridView.setOnItemClickListener(new OnItemClickListener() {
       		//Use unimplemented methods, modified as per grid view video for better clarity
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view, int position,
 					long id) {
-				Toast.makeText(myContext, "You have selected " + citiesArray[position] + " from grid view", Toast.LENGTH_LONG).show();
+				Toast.makeText(myContext, "You have selected " + tempMeasureArray[position] + " to display temp", Toast.LENGTH_LONG).show();
 				
 			}
-		});*/
+		});
       	
 		
 		setContentView(myLayout); 

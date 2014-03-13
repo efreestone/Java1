@@ -12,5 +12,10 @@
         <item >Chicago, IL</item>
         <item >Orlando, FL</item>
     </string-array>
+    
+    <string-array name="temp_measurement">
+        <item >Fahrenheit</item>
+        <item >Celsius</item>
+    </string-array>
 
 </resources>

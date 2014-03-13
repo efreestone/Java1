@@ -3,3 +3,5 @@
 1394589546233	Encapsulate field 'stateName'
 1394591085651	Encapsulate field 'fahrTemp'
 1394591092561	Encapsulate field 'celsiusTemp'
+1394732768972	Delete element
+1394732833826	Rename compilation unit 'citiesJSON.java'
