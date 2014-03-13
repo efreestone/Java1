@@ -60,7 +60,7 @@ public class CitiesJSON {
 			//Set results string with city info strings
 			if (MainActivity.selectedTempMeasurement.equalsIgnoreCase("Fahrenheit")) {
 				tempSelected = fahrenheit + " ¡F";
-			} else { 
+			} else {
 				tempSelected = celsius + " ¡C";
 			}
 			results = "City: " + city + "\r\n"
