@@ -58,7 +58,7 @@ public class MainActivity extends Activity {
 		myLayout.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
 		        
 		//Create center params used to center various items
-		LinearLayout.LayoutParams centerParams = new LinearLayout.LayoutParams(
+		final LinearLayout.LayoutParams centerParams = new LinearLayout.LayoutParams(
 		                LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
 		//Set gravity to center
 		centerParams.gravity = Gravity.CENTER;
@@ -161,6 +161,7 @@ public class MainActivity extends Activity {
 				//Get info from city JSON object
 				//String selectedCityFromEnum = CitiesEnum.valueOf(citiesArray[position]).setCityName();
 				displayTempView.setText(selectedCity);
+				displayTempView.setLayoutParams(centerParams);
 			}
 		});
       	

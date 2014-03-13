@@ -161,6 +161,7 @@ public class MainActivity extends Activity {
 				//Get info from city JSON object
 				//String selectedCityFromEnum = CitiesEnum.valueOf(citiesArray[position]).setCityName();
 				displayTempView.setText(selectedCity);
+				displayTempView.setLayoutParams(centerParams);
 			}
 		});
       	
