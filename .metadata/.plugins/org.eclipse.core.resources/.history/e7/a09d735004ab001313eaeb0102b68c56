@@ -110,7 +110,7 @@ public class MainActivity extends Activity {
 		});
       	
       	//Create measurement title text view
-      	final TextView measureTitleView = new TextView(this);
+      	TextView measureTitleView = new TextView(this);
       	//Set text appearance for title
       	measureTitleView.setTextAppearance(this, android.R.attr.textAppearanceLarge);
    		//Set text for title from resources
@@ -149,17 +149,13 @@ public class MainActivity extends Activity {
 				
 				//Set temp measurement from grid selection
 				selectedTempMeasurement = tempMeasureArray[position];
-				
-//				//tempGridView.setBackgroundColor(Color.BLUE);
-//				//Object obj = ((GridView) view).getAdapter().getItem(position);
-//				tempGridView.requestFocusFromTouch();
-//				tempGridView.setSelection(position);
-//				//System.out.println(selectedTempMeasurement);
-//				//tempGridView.setBackgroundColor(Color.BLUE);
-				
-				//Change text of measure title to what is currently selected.
-				measureTitleView.setText(selectedTempMeasurement + " currently selected");
-				
+				//tempGridView.setBackgroundColor(Color.BLUE);
+				//Object obj = ((GridView) view).getAdapter().getItem(position);
+				tempGridView.requestFocusFromTouch();
+				tempGridView.setSelection(position);
+				//System.out.println(selectedTempMeasurement);
+				//tempGridView.setBackgroundColor(Color.BLUE);
+				tempGridView.setBackgroundResource(position);
 			}
 		});
       	

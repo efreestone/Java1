@@ -22,7 +22,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.app.Activity;
 import android.content.Context;
-import android.graphics.Color;
 
 public class MainActivity extends Activity {
 	//Declare context
@@ -110,7 +109,7 @@ public class MainActivity extends Activity {
 		});
       	
       	//Create measurement title text view
-      	final TextView measureTitleView = new TextView(this);
+      	TextView measureTitleView = new TextView(this);
       	//Set text appearance for title
       	measureTitleView.setTextAppearance(this, android.R.attr.textAppearanceLarge);
    		//Set text for title from resources
@@ -127,7 +126,7 @@ public class MainActivity extends Activity {
       	//Create grid view adapter
       	ArrayAdapter<String> tempGridAdapter = new ArrayAdapter<String>(myContext, android.R.layout.simple_list_item_1, tempMeasureArray);
       	//Create grid view
-      	final GridView tempGridView = new GridView(myContext);
+      	GridView tempGridView = new GridView(myContext);
       	//Set grid layout params
       	tempGridView.setLayoutParams(centerParams);
       	//Set grid to 2 column
@@ -149,17 +148,7 @@ public class MainActivity extends Activity {
 				
 				//Set temp measurement from grid selection
 				selectedTempMeasurement = tempMeasureArray[position];
-				
-//				//tempGridView.setBackgroundColor(Color.BLUE);
-//				//Object obj = ((GridView) view).getAdapter().getItem(position);
-//				tempGridView.requestFocusFromTouch();
-//				tempGridView.setSelection(position);
-//				//System.out.println(selectedTempMeasurement);
-//				//tempGridView.setBackgroundColor(Color.BLUE);
-				
-				//Change text of measure title to what is currently selected.
-				measureTitleView.setText(selectedTempMeasurement + " currently selected");
-				
+				//System.out.println(selectedTempMeasurement);
 			}
 		});
       	

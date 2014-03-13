@@ -57,15 +57,12 @@ public class CitiesJSON {
 			state = newObject.getJSONObject("cities").getJSONObject(selectedCity).getString("stateName");
 			fahrenheit = newObject.getJSONObject("cities").getJSONObject(selectedCity).getString("fahrenheitTemp");
 			celsius = newObject.getJSONObject("cities").getJSONObject(selectedCity).getString("celsiusTemp");
-			
-			//Set tempSelected based on selected temp in MainActivity. Defaults to Fahrenheit if nothing is selected
+			//Set results string with city info strings
 			if (MainActivity.selectedTempMeasurement.equalsIgnoreCase("Fahrenheit")) {
 				tempSelected = fahrenheit + " ¡F";
 			} else { 
 				tempSelected = celsius + " ¡C";
 			}
-			
-			//Set results string with city info strings
 			results = "City: " + city + "\r\n"
 					+ "State: " + state + "\r\n"
 					+ "Current Temp: " + tempSelected + "\r\n";

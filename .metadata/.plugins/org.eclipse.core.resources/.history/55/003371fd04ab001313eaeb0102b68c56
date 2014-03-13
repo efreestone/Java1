@@ -157,7 +157,6 @@ public class MainActivity extends Activity {
 //				//System.out.println(selectedTempMeasurement);
 //				//tempGridView.setBackgroundColor(Color.BLUE);
 				
-				//Change text of measure title to what is currently selected.
 				measureTitleView.setText(selectedTempMeasurement + " currently selected");
 				
 			}
