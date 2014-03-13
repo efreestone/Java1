@@ -68,8 +68,8 @@ public class MainActivity extends Activity {
 		TextView titleView = new TextView(this);
 		//Set text appearance for title
 		titleView.setTextAppearance(this, android.R.attr.textAppearanceLarge);
-		//Set text for title from resources
-        titleView.setText(R.string.titleString);
+		//Set text for title
+        titleView.setText("Local Weather");
         //Add title with centered params
         myLayout.addView(titleView, centerParams);
         
@@ -100,6 +100,9 @@ public class MainActivity extends Activity {
 				//selectedCity = CitiesJSON.readJSON(citiesArray[position]);	
 				selectedCity = citiesArray[position];
 				System.out.println(selectedCity);
+				//selectedCity = CitiesEnum.Chicago.toString();
+				//selectedCity = CitiesEnum.valueOf(citiesArray[position]).getCityName(); 
+				
 			}
 
 			@Override
@@ -112,8 +115,8 @@ public class MainActivity extends Activity {
       	TextView measureTitleView = new TextView(this);
       	//Set text appearance for title
       	measureTitleView.setTextAppearance(this, android.R.attr.textAppearanceLarge);
-   		//Set text for title from resources
-      	measureTitleView.setText(R.string.measureTitleString);
+   		//Set text for title
+      	measureTitleView.setText("Please select units of measurement");
         //Add title with centered params
         myLayout.addView(measureTitleView, centerParams);
         
@@ -129,6 +132,7 @@ public class MainActivity extends Activity {
       	GridView tempGridView = new GridView(myContext);
       	//Set grid layout params
       	tempGridView.setLayoutParams(centerParams);
+      	tempGridView.setGravity(Gravity.CENTER_VERTICAL);
       	//Set grid to 2 column
       	tempGridView.setNumColumns(2);
       	//Set grid adapter
@@ -152,7 +156,7 @@ public class MainActivity extends Activity {
       	//Create get weather button
         Button weatherButton = new Button(this);
         //Set button text
-        weatherButton.setText(R.string.weatherButtonString);
+        weatherButton.setText("Get Weather");
         //Set width of the button
         weatherButton.setWidth(500);
         //Add button to my layout with centered params
@@ -173,8 +177,8 @@ public class MainActivity extends Activity {
       	displayTempView = new TextView(this);
       	//Set text appearance for title
       	displayTempView.setTextAppearance(this, android.R.attr.textAppearanceLarge);
-   		//Set text for title from resources
-      	displayTempView.setText(R.string.displayTempString);
+   		//Set text for title
+      	displayTempView.setText("Please select a city and measurement unit");
         //Add title with centered params
         myLayout.addView(displayTempView, centerParams);
       	
