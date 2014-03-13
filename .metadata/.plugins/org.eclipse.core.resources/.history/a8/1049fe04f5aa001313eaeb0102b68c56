@@ -159,9 +159,9 @@ public class MainActivity extends Activity {
 			
 			@Override
 			public void onClick(View v) {
-				//Get info from city JSON object 
-				String selectedCityFromEnum = CitiesJSON.readJSON(selectedCity);
-				displayTempView.setText(selectedCityFromEnum);
+				//Get info from city JSON object
+				//String selectedCityFromEnum = CitiesEnum.valueOf(citiesArray[position]).setCityName();
+				displayTempView.setText(selectedCity);
 			}
 		});
       	

@@ -96,8 +96,7 @@ public class MainActivity extends Activity {
 				//Toast.makeText(myContext, "You have selected " + citiesArray[position], Toast.LENGTH_LONG).show();
 				
 				//Set selected city from spinner selection
-				//selectedCity = CitiesJSON.readJSON(citiesArray[position]);	
-				selectedCity = citiesArray[position];
+				selectedCity = CitiesJSON.readJSON(citiesArray[position]);	
 				System.out.println(selectedCity);
 				//selectedCity = CitiesEnum.Chicago.toString();
 				//selectedCity = CitiesEnum.valueOf(citiesArray[position]).getCityName(); 
@@ -159,9 +158,9 @@ public class MainActivity extends Activity {
 			
 			@Override
 			public void onClick(View v) {
-				//Get info from city JSON object 
-				String selectedCityFromEnum = CitiesJSON.readJSON(selectedCity);
-				displayTempView.setText(selectedCityFromEnum);
+				//Get info from city JSON object
+				//String selectedCityFromEnum = CitiesEnum.valueOf(citiesArray[position]).setCityName();
+				displayTempView.setText(selectedCity);
 			}
 		});
       	
