@@ -59,8 +59,8 @@ public class CitiesJSON {
 			//Set results string with city info strings
 			results = "City: " + city + "\r\n"
 					+ "State: " + state + "\r\n"
-					+ "Fahrenheit: " + fahrenheit + " ¡F" + "\r\n"
-					+ "Celsius: " + celsius + " ¡C" + "\r\n";
+					+ "Fahrenheit: " + fahrenheit + "¡F" + "\r\n"
+					+ "Celsius: " + celsius + "¡C" + "\r\n";
 		} catch (JSONException e) {
 			e.printStackTrace();
 			results = e.toString();
