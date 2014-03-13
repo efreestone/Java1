@@ -63,8 +63,8 @@ public class CitiesJSON {
 					+ "Celsius: " + celsiusTemp + "\r\n";
 		} catch (JSONException e) {
 			e.printStackTrace();
-			results = e.toString();
-			//results = "broken";
+			//results = e.toString();
+			results = "broken";
 			System.out.println("Read JSON catch");
 		}
 		

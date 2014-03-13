@@ -6,11 +6,11 @@
     <string name="hello_world">Hello world!</string>
     
     <string-array name="cities_array">
-        <item >Loveland</item>
-        <item >LosAngeles</item>
-        <item >NewYork</item>
-        <item >Chicago</item>
-        <item >Orlando</item>
+        <item >Loveland, CO</item>
+        <item >Los Angeles, CA</item>
+        <item >New York, NY</item>
+        <item >Chicago, IL</item>
+        <item >Orlando, FL</item>
     </string-array>
     
     <string-array name="temp_measurement">

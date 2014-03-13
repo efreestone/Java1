@@ -6,9 +6,9 @@
     <string name="hello_world">Hello world!</string>
     
     <string-array name="cities_array">
-        <item >Loveland</item>
-        <item >LosAngeles</item>
-        <item >NewYork</item>
+        <item >LOVELAND</item>
+        <item >LOSANGELES</item>
+        <item >New York</item>
         <item >Chicago</item>
         <item >Orlando</item>
     </string-array>

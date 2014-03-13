@@ -25,8 +25,8 @@ public class CitiesJSON {
 				// Add city info to city object
 				cityObject.put("cityName", city.getCityName());
 				cityObject.put("stateName", city.getStateName());
-				cityObject.put("fahrenheitTemp", city.getFahrenheitTemp().toString());
-				cityObject.put("celsiusTemp", city.getCelsiusTemp().toString());
+				cityObject.put("fahrenheitTemp", city.getFahrenheitTemp());
+				cityObject.put("celsiusTemp", city.getCelsiusTemp());
 				// Add city object to query object
 				queryObject.put(city.name().toString(), cityObject);
 			}
@@ -36,36 +36,27 @@ public class CitiesJSON {
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			System.out.println("Build JSON catch");
 		}
 		// Return the cities object
 		return citiesObject;
 	}
 	
 	//Create read JSON method
-	public static String readJSON(String selectedCity){
+	public static String readJSON(String selected){
 		//String for results
 		String results, cityName, stateName, fahrenheitTemp, celsiusTemp;
 		
 		JSONObject object = buildJSON();
 		
 		try {
-			System.out.println("Read JSON try");
-			//Get query object and apply to strings for use in results string
-			cityName = object.getJSONObject("query").getJSONObject(selectedCity).getString("cityName");
-			stateName = object.getJSONObject("query").getJSONObject(selectedCity).getString("stateName");
-			fahrenheitTemp = object.getJSONObject("query").getJSONObject(selectedCity).getString("fahrenheitTemp");
-			celsiusTemp = object.getJSONObject("query").getJSONObject(selectedCity).getString("celsiusTemp");
-			//Set results string with city info strings
-			results = "City: " + cityName + "\r\n"
-					+ "State: " + stateName + "\r\n"
-					+ "Fahrenheit: " + fahrenheitTemp + "\r\n"
-					+ "Celsius: " + celsiusTemp + "\r\n";
+			//Get 
+			cityName = object.getJSONObject("query").getJSONObject(selected).getString("cityName");
+			stateName = object.getJSONObject("query").getJSONObject(selected).getString("stateName");
+			fahrenheitTemp = object.getJSONObject("query").getJSONObject(selected).getString("fahrenheitTemp");
+			celsiusTemp = object.getJSONObject("query").getJSONObject(selected).getString("celsiusTemp");
 		} catch (JSONException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
-			results = e.toString();
-			//results = "broken";
-			System.out.println("Read JSON catch");
 		}
 		
 		//Return results

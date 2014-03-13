@@ -96,9 +96,9 @@ public class MainActivity extends Activity {
 				Toast.makeText(myContext, "You have selected " + citiesArray[position], Toast.LENGTH_LONG).show();
 				
 				//Set selected city from spinner selection
-				selectedCity = CitiesJSON.readJSON(citiesArray[position]);	
+				//selectedCity = CitiesJSON.readJSON(citiesArray[position]);	
 				//selectedCity = CitiesEnum.Chicago.toString();
-				//selectedCity = CitiesEnum.valueOf(citiesArray[position]).getCityName(); 
+				selectedCity = CitiesEnum.valueOf(citiesArray[position]).getCityName();
 			}
 
 			@Override

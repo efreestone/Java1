@@ -7,8 +7,8 @@
     
     <string-array name="cities_array">
         <item >Loveland</item>
-        <item >LosAngeles</item>
-        <item >NewYork</item>
+        <item >Los Angeles</item>
+        <item >New York</item>
         <item >Chicago</item>
         <item >Orlando</item>
     </string-array>

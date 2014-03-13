@@ -8,7 +8,6 @@ package com.elijahfreestone.java1project2;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
@@ -17,6 +16,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.GridView;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -34,8 +34,6 @@ public class MainActivity extends Activity {
 	String selectedCity;
 	//Declare selected temp measurement
 	String selectedTempMeasurement;
-	//Declare temp display view
-	TextView displayTempView;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -97,12 +95,11 @@ public class MainActivity extends Activity {
 				
 				//Set selected city from spinner selection
 				selectedCity = CitiesJSON.readJSON(citiesArray[position]);	
-				//selectedCity = CitiesEnum.Chicago.toString();
-				//selectedCity = CitiesEnum.valueOf(citiesArray[position]).getCityName(); 
 			}
 
 			@Override
 			public void onNothingSelected(AdapterView<?> arg0) {
+				// TODO Auto-generated method stub
 				
 			}
 		});
@@ -142,28 +139,17 @@ public class MainActivity extends Activity {
 			}
 		});
       	
-      	//Create get weather button
-        Button weatherButton = new Button(this);
+      	//Create calculate button
+        Button calculateButton = new Button(this);
         //Set button text
-        weatherButton.setText("Get Weather");
+        calculateButton.setText("Get Weather");
         //Set width of the button
-        weatherButton.setWidth(500);
+        calculateButton.setWidth(500);
         //Add button to my layout with centered params
-        myLayout.addView(weatherButton, centerParams);
-        
-        //Create onClick event for weather button
-        weatherButton.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				//Get info from city JSON object
-				//String selectedCityFromEnum = CitiesEnum.valueOf(citiesArray[position]).setCityName();
-				displayTempView.setText(CitiesJSON.readJSON(selectedCity));
-			}
-		});
+        myLayout.addView(calculateButton, centerParams);
       	
         //Create measurement title text view
-      	displayTempView = new TextView(this);
+      	TextView displayTempView = new TextView(this);
       	//Set text appearance for title
       	displayTempView.setTextAppearance(this, android.R.attr.textAppearanceLarge);
    		//Set text for title

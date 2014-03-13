@@ -8,10 +8,10 @@ package com.elijahfreestone.java1project2;
 //Create enum of cities enhanced with extra fields (strings an floats)
 public enum CitiesEnum {
 	Loveland("Loveland", "CO", 31.6f, -0.2f),
-	LosAngeles("Los Angeles", "CA", 68.8f, 20.4f),
-	NewYork("New York", "NY", 59.5f, 15.2f),
-	Chicago("Chicago", "IL", 38.3f, 3.5f),
-	Orlando("Orlando", "FL", 71.7f, 22.0f);
+	LOSANGELES("Los Angeles", "CA", 68.8f, 20.4f),
+	NEWYORK("New York", "NY", 59.5f, 15.2f),
+	CHICAGO("Chicago", "IL", 38.3f, 3.5f),
+	ORLANDO("Orlando", "FL", 71.7f, 22.0f);
 	
 	//Declare local instance variables
 	private String cityName;

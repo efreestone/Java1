@@ -25,8 +25,8 @@ public class CitiesJSON {
 				// Add city info to city object
 				cityObject.put("cityName", city.getCityName());
 				cityObject.put("stateName", city.getStateName());
-				cityObject.put("fahrenheitTemp", city.getFahrenheitTemp().toString());
-				cityObject.put("celsiusTemp", city.getCelsiusTemp().toString());
+				cityObject.put("fahrenheitTemp", city.getFahrenheitTemp());
+				cityObject.put("celsiusTemp", city.getCelsiusTemp());
 				// Add city object to query object
 				queryObject.put(city.name().toString(), cityObject);
 			}
@@ -36,7 +36,6 @@ public class CitiesJSON {
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			System.out.println("Build JSON catch");
 		}
 		// Return the cities object
 		return citiesObject;
@@ -50,7 +49,6 @@ public class CitiesJSON {
 		JSONObject object = buildJSON();
 		
 		try {
-			System.out.println("Read JSON try");
 			//Get query object and apply to strings for use in results string
 			cityName = object.getJSONObject("query").getJSONObject(selectedCity).getString("cityName");
 			stateName = object.getJSONObject("query").getJSONObject(selectedCity).getString("stateName");
@@ -62,10 +60,9 @@ public class CitiesJSON {
 					+ "Fahrenheit: " + fahrenheitTemp + "\r\n"
 					+ "Celsius: " + celsiusTemp + "\r\n";
 		} catch (JSONException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 			results = e.toString();
-			//results = "broken";
-			System.out.println("Read JSON catch");
 		}
 		
 		//Return results
