@@ -131,7 +131,7 @@ public class MainActivity extends Activity {
       	tempGridView.setLayoutParams(centerParams);
       	//Set grid to 2 column
       	tempGridView.setNumColumns(2);
-      	tempGridView.setGravity(Gravity.RIGHT);
+      	//tempGridView.setHorizontalSpacing(50);
       	//Set grid adapter
       	tempGridView.setAdapter(tempGridAdapter);
       	//Add grid view to my layout
