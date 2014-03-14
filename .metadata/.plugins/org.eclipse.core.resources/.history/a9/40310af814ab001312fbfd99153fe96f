@@ -59,7 +59,8 @@ public class MainActivity extends Activity {
 		LinearLayout.LayoutParams centerParams = new LinearLayout.LayoutParams(
 		                LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
 		//Set gravity to center
-		centerParams.gravity = Gravity.CENTER;
+		centerParams.gravity = Gravity.CENTER_HORIZONTAL;
+		//centerParams.gravity = Gravity.CENTER_VERTICAL;
 
 		//Create title text view
 		TextView titleView = new TextView(this);
@@ -93,9 +94,10 @@ public class MainActivity extends Activity {
 				//Create toast to test spinner selection
 				//Toast.makeText(myContext, "You have selected " + citiesArray[position], Toast.LENGTH_LONG).show();
 				
-				//Set selected city from spinner selection	
+				//Set selected city from spinner selection
+				//selectedCity = CitiesJSON.readJSON(citiesArray[position]);	
 				selectedCity = citiesArray[position];
-				//System.out.println(selectedCity);
+				System.out.println(selectedCity);
 			}
 
 			@Override
@@ -112,6 +114,12 @@ public class MainActivity extends Activity {
       	measureTitleView.setText(R.string.measureTitleString);
         //Add title with centered params
         myLayout.addView(measureTitleView, centerParams);
+        
+//        //Create center params used to center various items
+//      	LinearLayout.LayoutParams gridParams = new LinearLayout.LayoutParams(
+//      	                LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
+//      	//Set gravity to center
+//      	centerParams.gravity = Gravity.CENTER_VERTICAL;
       	
       	//Create grid view adapter
       	ArrayAdapter<String> tempGridAdapter = new ArrayAdapter<String>(myContext, android.R.layout.simple_list_item_1, tempMeasureArray); 

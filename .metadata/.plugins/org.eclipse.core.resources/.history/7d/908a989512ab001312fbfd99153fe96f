@@ -17,6 +17,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.GridView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -47,11 +48,14 @@ public class MainActivity extends Activity {
 		citiesArray = getResources().getStringArray(R.array.cities_array);
 		//Grab temp measure array for strings.xml resource file
 		tempMeasureArray = getResources().getStringArray(R.array.temp_measurement);
+		//Initialize selected temp measurement (fahrenheit or celsius)
+		//selectedTempMeasurement = "Fahrenheit";
 		
 		//Create linear layout instance
-		LinearLayout myLayout = new LinearLayout(this);
+		RelativeLayout myLayout = new RelativeLayout(this);
+		
 		//Set orientation
-		myLayout.setOrientation(LinearLayout.VERTICAL);
+		//myLayout.setOrientation(LinearLayout.VERTICAL);
 		//Set my layout parameters to match the parent item
 		myLayout.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
 		        
@@ -59,7 +63,8 @@ public class MainActivity extends Activity {
 		LinearLayout.LayoutParams centerParams = new LinearLayout.LayoutParams(
 		                LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
 		//Set gravity to center
-		centerParams.gravity = Gravity.CENTER;
+		centerParams.gravity = Gravity.CENTER_HORIZONTAL;
+		//centerParams.gravity = Gravity.CENTER_VERTICAL;
 
 		//Create title text view
 		TextView titleView = new TextView(this);
@@ -93,9 +98,10 @@ public class MainActivity extends Activity {
 				//Create toast to test spinner selection
 				//Toast.makeText(myContext, "You have selected " + citiesArray[position], Toast.LENGTH_LONG).show();
 				
-				//Set selected city from spinner selection	
+				//Set selected city from spinner selection
+				//selectedCity = CitiesJSON.readJSON(citiesArray[position]);	
 				selectedCity = citiesArray[position];
-				//System.out.println(selectedCity);
+				System.out.println(selectedCity);
 			}
 
 			@Override
@@ -112,6 +118,12 @@ public class MainActivity extends Activity {
       	measureTitleView.setText(R.string.measureTitleString);
         //Add title with centered params
         myLayout.addView(measureTitleView, centerParams);
+        
+//        //Create center params used to center various items
+//      	LinearLayout.LayoutParams gridParams = new LinearLayout.LayoutParams(
+//      	                LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
+//      	//Set gravity to center
+//      	centerParams.gravity = Gravity.CENTER_VERTICAL;
       	
       	//Create grid view adapter
       	ArrayAdapter<String> tempGridAdapter = new ArrayAdapter<String>(myContext, android.R.layout.simple_list_item_1, tempMeasureArray); 
@@ -121,12 +133,12 @@ public class MainActivity extends Activity {
       	tempGridView.setLayoutParams(centerParams);
       	//Set grid to 2 column
       	tempGridView.setNumColumns(2);
+      	tempGridView.setGravity(Gravity.RIGHT);
       	//Set grid adapter
       	tempGridView.setAdapter(tempGridAdapter);
       	//Add grid view to my layout
       	myLayout.addView(tempGridView);
       	
-      	//Initialize selected temp measurement (fahrenheit or celsius). If nothing is selected, default is Fahrenheit
       	selectedTempMeasurement = "Fahrenheit";
       	
       	//Set on item click for grid view
@@ -140,10 +152,19 @@ public class MainActivity extends Activity {
 				//Set temp measurement from grid selection
 				selectedTempMeasurement = tempMeasureArray[position];
 				
-				//Change text of measure title to show what is currently selected (fahrenheit or celsius).
+				//tempGridView.setHorizontalSpacing(30);  
+				
+//				//tempGridView.setBackgroundColor(Color.BLUE);
+//				//Object obj = ((GridView) view).getAdapter().getItem(position);
+//				tempGridView.requestFocusFromTouch();
+//				tempGridView.setSelection(position);
+//				//System.out.println(selectedTempMeasurement);
+//				//tempGridView.setBackgroundColor(Color.BLUE);
+				
+				//Change text of measure title to what is currently selected (fahrenheit or celsius).
 				measureTitleView.setText(selectedTempMeasurement + " currently selected");
 				
-				//Boolean selected = true;
+				Boolean selected = true;
 				
 				//setSelected(tempGridView, selected);
 				
