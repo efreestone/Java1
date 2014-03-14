@@ -5,9 +5,8 @@
 
 package com.elijahfreestone.java1project2;
 
+import com.elijhafreestone.cities.CitiesJSON;
 
-import android.app.Activity;
-import android.content.Context;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
@@ -22,6 +21,9 @@ import android.widget.GridView;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
+import android.app.Activity;
+import android.content.Context;
 
 public class MainActivity extends Activity {
 	//Declare context

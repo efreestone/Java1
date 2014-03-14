@@ -35,8 +35,9 @@ public class CitiesJSON {
 			citiesObject.put("cities", queryObject);
 
 		} catch (JSONException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
-			//System.out.println("Build JSON catch");
+			System.out.println("Build JSON catch");
 		}
 		// Return the cities object
 		return citiesObject;

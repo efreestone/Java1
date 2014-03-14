@@ -5,9 +5,6 @@
 
 package com.elijahfreestone.java1project2;
 
-
-import android.app.Activity;
-import android.content.Context;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
@@ -22,6 +19,9 @@ import android.widget.GridView;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
+import android.app.Activity;
+import android.content.Context;
 
 public class MainActivity extends Activity {
 	//Declare context
@@ -142,7 +142,11 @@ public class MainActivity extends Activity {
 				
 				//Change text of measure title to show what is currently selected (fahrenheit or celsius).
 				measureTitleView.setText(selectedTempMeasurement + " currently selected");
-
+				
+				//Boolean selected = true;
+				
+				//setSelected(tempGridView, selected);
+				
 			}
 		});
       	
@@ -179,4 +183,13 @@ public class MainActivity extends Activity {
 		setContentView(myLayout); 
 		//setContentView(R.layout.activity_main);
 	}
+	
+//	private void setSelected(final View view, final boolean selected) {
+//  	    view.post(new Runnable() {
+//  	        @Override
+//  	        public void run() {
+//  	            view.setSelected(selected);
+//  	        }
+//  	    });
+//  	}
 }

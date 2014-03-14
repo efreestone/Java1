@@ -3,7 +3,7 @@
 //Week 2
 //March 9th, 2014
 
-package com.elijahfreestone.java1project2;
+package com.elijhafreestone.cities;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -35,8 +35,9 @@ public class CitiesJSON {
 			citiesObject.put("cities", queryObject);
 
 		} catch (JSONException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
-			//System.out.println("Build JSON catch");
+			System.out.println("Build JSON catch");
 		}
 		// Return the cities object
 		return citiesObject;

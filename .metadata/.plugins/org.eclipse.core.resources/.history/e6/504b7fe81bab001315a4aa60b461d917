@@ -8,7 +8,6 @@ package com.elijahfreestone.java1project2;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-
 public class CitiesJSON {
 	//Create JSON build method
 	public static JSONObject buildJSON(){
@@ -35,8 +34,9 @@ public class CitiesJSON {
 			citiesObject.put("cities", queryObject);
 
 		} catch (JSONException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
-			//System.out.println("Build JSON catch");
+			System.out.println("Build JSON catch");
 		}
 		// Return the cities object
 		return citiesObject;

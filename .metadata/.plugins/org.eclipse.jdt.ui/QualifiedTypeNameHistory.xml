@@ -35,4 +35,6 @@
 <fullyQualifiedTypeName name="android.widget.GridView"/>
 <fullyQualifiedTypeName name="com.elijahfreestone.java1project2.R.drawable"/>
 <fullyQualifiedTypeName name="android.view.Gravity"/>
+<fullyQualifiedTypeName name="java.lang.Boolean"/>
+<fullyQualifiedTypeName name="android.widget.RelativeLayout"/>
 </qualifiedTypeNameHistroy>
