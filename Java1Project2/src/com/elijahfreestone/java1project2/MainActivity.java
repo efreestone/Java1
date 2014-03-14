@@ -5,28 +5,37 @@
 
 package com.elijahfreestone.java1project2;
 
+
+import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.GridView;
 import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
-import android.app.Activity;
-import android.content.Context;
 
 public class MainActivity extends Activity {
 	//Declare context
 	Context myContext;
 	//Declare array of cities
 	String[] citiesArray;
+	//Declare temp measurement array
+	String[] tempMeasureArray;
+	//Declare selected city
+	String selectedCity;
+	//Declare selected temp measurement
+	static String selectedTempMeasurement;
+	//Declare temp display view
+	TextView displayTempView;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +45,8 @@ public class MainActivity extends Activity {
 		myContext = this;
 		//Grab cities array from strings.xml resource file
 		citiesArray = getResources().getStringArray(R.array.cities_array);
+		//Grab temp measure array for strings.xml resource file
+		tempMeasureArray = getResources().getStringArray(R.array.temp_measurement);
 		
 		//Create linear layout instance
 		LinearLayout myLayout = new LinearLayout(this);
@@ -54,8 +65,8 @@ public class MainActivity extends Activity {
 		TextView titleView = new TextView(this);
 		//Set text appearance for title
 		titleView.setTextAppearance(this, android.R.attr.textAppearanceLarge);
-		//Set text for title
-        titleView.setText("Local Weather");
+		//Set text for title from resources
+        titleView.setText(R.string.titleString);
         //Add title with centered params
         myLayout.addView(titleView, centerParams);
         
@@ -80,64 +91,91 @@ public class MainActivity extends Activity {
 			public void onItemSelected(AdapterView<?> parent, View view,
 					int position, long id) {
 				//Create toast to test spinner selection
-				Toast.makeText(myContext, "You have selected " + citiesArray[position], Toast.LENGTH_LONG).show();
+				//Toast.makeText(myContext, "You have selected " + citiesArray[position], Toast.LENGTH_LONG).show();
 				
+				//Set selected city from spinner selection	
+				selectedCity = citiesArray[position];
+				//System.out.println(selectedCity);
 			}
 
 			@Override
 			public void onNothingSelected(AdapterView<?> arg0) {
-				// TODO Auto-generated method stub
 				
 			}
 		});
       	
-      	/*//Create list adapter
-      	ArrayAdapter<String> listAdapter = new ArrayAdapter<String>(myContext, android.R.layout.simple_list_item_1, citiesArray);
+      	//Create measurement title text view
+      	final TextView measureTitleView = new TextView(this);
+      	//Set text appearance for title
+      	measureTitleView.setTextAppearance(this, android.R.attr.textAppearanceLarge);
+   		//Set text for title from resources
+      	measureTitleView.setText(R.string.measureTitleString);
+        //Add title with centered params
+        myLayout.addView(measureTitleView, centerParams);
       	
-      	//Create list view
-      	ListView listView = new ListView(myContext);
-      	listView.setLayoutParams(spinnerParams);
-      	listView.setAdapter(listAdapter);
-      	//Add list view to my layout
-      	myLayout.addView(listView);
-      	
-      	//Set on item click for list view
-      	listView.setOnItemClickListener(new OnItemClickListener() {
-			//Use unimplemented methods, modified as per list view video for better clarity
-			@Override
-			public void onItemClick(AdapterView<?> parent, View view, int position,
-					long id) {
-				//Create toast to test spinner selection
-				Toast.makeText(myContext, "You have selected " + citiesArray[position] + " from list view", Toast.LENGTH_LONG).show();
-								
-			}
-		});*/
-      	
-      	/*//Create grid view adapter
-      	ArrayAdapter<String> gridAdapter = new ArrayAdapter<String>(myContext, android.R.layout.simple_list_item_1, citiesArray);
+      	//Create grid view adapter
+      	ArrayAdapter<String> tempGridAdapter = new ArrayAdapter<String>(myContext, android.R.layout.simple_list_item_1, tempMeasureArray); 
       	//Create grid view
-      	GridView gridView = new GridView(myContext);
+      	final GridView tempGridView = new GridView(myContext);
       	//Set grid layout params
-      	gridView.setLayoutParams(spinnerParams);
+      	tempGridView.setLayoutParams(centerParams);
       	//Set grid to 2 column
-      	gridView.setNumColumns(2);
+      	tempGridView.setNumColumns(2);
       	//Set grid adapter
-      	gridView.setAdapter(gridAdapter);
+      	tempGridView.setAdapter(tempGridAdapter);
       	//Add grid view to my layout
-      	myLayout.addView(gridView);
+      	myLayout.addView(tempGridView);
+      	
+      	//Initialize selected temp measurement (fahrenheit or celsius). If nothing is selected, default is Fahrenheit
+      	selectedTempMeasurement = "Fahrenheit";
       	
       	//Set on item click for grid view
-      	gridView.setOnItemClickListener(new OnItemClickListener() {
+      	tempGridView.setOnItemClickListener(new OnItemClickListener() {
       		//Use unimplemented methods, modified as per grid view video for better clarity
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view, int position,
 					long id) {
-				Toast.makeText(myContext, "You have selected " + citiesArray[position] + " from grid view", Toast.LENGTH_LONG).show();
+				//Toast.makeText(myContext, "You have selected " + tempMeasureArray[position] + " to display temp", Toast.LENGTH_LONG).show();
 				
+				//Set temp measurement from grid selection
+				selectedTempMeasurement = tempMeasureArray[position];
+				
+				//Change text of measure title to show what is currently selected (fahrenheit or celsius).
+				measureTitleView.setText(selectedTempMeasurement + " currently selected");
+
 			}
-		});*/
+		});
       	
-		
+      	//Create get weather button
+        Button weatherButton = new Button(this);
+        //Set button text
+        weatherButton.setText(R.string.weatherButtonString);
+        //Set width of the button
+        weatherButton.setWidth(500);
+        //Add button to my layout with centered params
+        myLayout.addView(weatherButton, centerParams);
+        
+        //Create onClick event for weather button
+        weatherButton.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				//Get info from city JSON object 
+				String selectedCityFromEnum = CitiesJSON.readJSON(selectedCity);
+				displayTempView.setText(selectedCityFromEnum);
+			}
+		});
+      	
+        //Create measurement title text view
+      	displayTempView = new TextView(this);
+      	//Set text appearance for title
+      	displayTempView.setTextAppearance(this, android.R.attr.textAppearanceLarge);
+   		//Set text for title from resources
+      	displayTempView.setText(R.string.displayTempString);
+        //Add title with centered params
+        myLayout.addView(displayTempView, centerParams);
+      	
+        //Override xml layout with my linear layout
 		setContentView(myLayout); 
 		//setContentView(R.layout.activity_main);
 	}

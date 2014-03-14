@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Java 1 Project 2</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    
+    <string name="titleString">Local Weather</string>
+    <string name="measureTitleString">Please select units of measurement</string>
+    <string name="weatherButtonString">Get Weather</string>
+    
+    <string-array name="cities_array">
+        <item >Loveland</item>
+        <item >LosAngeles</item>
+        <item >NewYork</item>
+        <item >Chicago</item>
+        <item >Orlando</item>
+    </string-array>
+    
+    <string-array name="temp_measurement">
+        <item >Fahrenheit</item>
+        <item >Celsius</item>
+    </string-array>
+
+</resources>

@@ -1,0 +1,71 @@
+//Elijah Freestone
+//Java 1 term 1403
+//Week 2
+//March 9th, 2014
+
+package com.elijahfreestone.java1project2;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+public class CitiesJSON {
+	//Create JSON build method
+	public static JSONObject buildJSON(){
+		// Create cities object
+		JSONObject citiesObject = new JSONObject();
+		try {
+			// Create query object
+			JSONObject queryObject = new JSONObject();
+
+			// Create city object in query object
+			for (CitiesEnum city : CitiesEnum.values()) {
+				// Create city object
+				JSONObject cityObject = new JSONObject();
+
+				// Add city info to city object
+				cityObject.put("cityName", city.setCityName());
+				cityObject.put("stateName", city.setStateName());
+				cityObject.put("fahrenheitTemp", city.setFahrenheitTemp());
+				cityObject.put("celsiusTemp", city.setCelsiusTemp());
+				// Add city object to query object
+				queryObject.put(city.name().toString(), cityObject);
+			}
+			// Add query to cities objects
+			citiesObject.put("query", queryObject);
+
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		// Return the cities object
+		return citiesObject;
+	}
+	
+	//Create read JSON method
+	public static String readJSON(String selected){
+		//String for results
+		String results, cityName, stateName, fahrenheitTemp, celsiusTemp;
+		
+		JSONObject object = buildJSON();
+		
+		try {
+			//Get query object and apply to strings for use in results string
+			cityName = object.getJSONObject("query").getJSONObject(selected).getString("cityName");
+			stateName = object.getJSONObject("query").getJSONObject(selected).getString("stateName");
+			fahrenheitTemp = object.getJSONObject("query").getJSONObject(selected).getString("fahrenheitTemp");
+			celsiusTemp = object.getJSONObject("query").getJSONObject(selected).getString("celsiusTemp");
+			//Set results string with city info strings
+			results = "City: " + cityName + "\r\n"
+					+ "State: " + stateName + "\r\n"
+					+ "Fahrenheit: " + fahrenheitTemp + "\r\n"
+					+ "Celsius: " + celsiusTemp + "\r\n";
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			results = e.toString();
+		}
+		
+		//Return results
+		return results;
+	}
+}
