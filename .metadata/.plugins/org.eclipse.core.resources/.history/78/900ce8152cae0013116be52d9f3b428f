@@ -7,11 +7,10 @@ package com.elijahfreestone.cities;
 
 //Create enum of cities enhanced with extra fields (strings an floats)
 public enum CitiesEnum {
-	Loveland("Loveland", "CO", 31.6f, -0.2f), 
-	LosAngeles("Los Angeles", "CA", 68.8f, 20.4f), 
-	NewYork("New York", "NY", 59.5f, 15.2f), 
-	Chicago("Chicago", "IL", 38.3f, 3.5f), 
-	Orlando("Orlando", "FL", 71.7f, 22.0f);
+	Loveland("Loveland", "CO", 31.6f, -0.2f), LosAngeles("Los Angeles", "CA",
+			68.8f, 20.4f), NewYork("New York", "NY", 59.5f, 15.2f), Chicago(
+			"Chicago", "IL", 38.3f, 3.5f), Orlando("Orlando", "FL", 71.7f,
+			22.0f);
 
 	// Declare local instance variables
 	private String cityName;
@@ -20,7 +19,8 @@ public enum CitiesEnum {
 	private Float celsiusTemp;
 
 	// Create constructor for enum fields
-	private CitiesEnum(String cityName, String stateName, Float fahrenheitTemp, Float celsiusTemp) {
+	private CitiesEnum(String cityName, String stateName, Float fahrenheitTemp,
+			Float celsiusTemp) {
 		this.cityName = cityName;
 		this.stateName = stateName;
 		this.fahrenheitTemp = fahrenheitTemp;

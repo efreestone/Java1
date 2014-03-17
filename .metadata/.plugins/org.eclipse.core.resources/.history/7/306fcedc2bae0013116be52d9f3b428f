@@ -54,21 +54,26 @@ public class CitiesJSON {
 		try {
 			System.out.println("Read JSON try");
 			// Get query object and apply to strings for use in results string
-			city = newObject.getJSONObject("cities").getJSONObject(selectedCity).getString("cityName");
-			state = newObject.getJSONObject("cities").getJSONObject(selectedCity).getString("stateName");
-			fahrenheit = newObject.getJSONObject("cities").getJSONObject(selectedCity).getString("fahrenheitTemp");
-			celsius = newObject.getJSONObject("cities").getJSONObject(selectedCity).getString("celsiusTemp");
+			city = newObject.getJSONObject("cities")
+					.getJSONObject(selectedCity).getString("cityName");
+			state = newObject.getJSONObject("cities")
+					.getJSONObject(selectedCity).getString("stateName");
+			fahrenheit = newObject.getJSONObject("cities")
+					.getJSONObject(selectedCity).getString("fahrenheitTemp");
+			celsius = newObject.getJSONObject("cities")
+					.getJSONObject(selectedCity).getString("celsiusTemp");
 
-			// Set tempSelected based on selected temp in MainActivity. Defaults to Fahrenheit if nothing is selected
-			if (MainActivity.selectedTempMeasurement.equalsIgnoreCase("Fahrenheit")) {
+			// Set tempSelected based on selected temp in MainActivity. Defaults
+			// to Fahrenheit if nothing is selected
+			if (MainActivity.selectedTempMeasurement
+					.equalsIgnoreCase("Fahrenheit")) {
 				tempSelected = fahrenheit + " ¡F";
 			} else {
 				tempSelected = celsius + " ¡C";
 			}
 
 			// Set results string with city info strings
-			results = "City: " + city + "\r\n" 
-					+ "State: " + state + "\r\n"
+			results = "City: " + city + "\r\n" + "State: " + state + "\r\n"
 					+ "Current Temp: " + tempSelected + "\r\n";
 		} catch (JSONException e) {
 			e.printStackTrace();
