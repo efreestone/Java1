@@ -1,0 +1,5 @@
+package com.elijahfreestone.cities;
+
+public enum CitiesEnum {
+
+}
