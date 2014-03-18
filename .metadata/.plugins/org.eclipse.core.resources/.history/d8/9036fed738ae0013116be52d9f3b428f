@@ -5,6 +5,9 @@
 
 package com.elijahfreestone.java1project3;
 
+//import com.elijahfreestone.java1project2.CitiesJSON;
+//import com.elijahfreestone.java1project2.R;
+
 import com.elijahfreestone.cities.CitiesJSON;
 
 import android.os.Bundle;
