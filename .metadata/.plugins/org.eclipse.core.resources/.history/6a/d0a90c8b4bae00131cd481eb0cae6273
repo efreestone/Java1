@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.app.Activity;
 import android.content.Context;
 import android.view.Gravity;
+import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup.LayoutParams;
@@ -41,10 +42,6 @@ public class MainActivity extends Activity {
 	static String TAG = "NETWORK DATA - MAINACTIVITY";
 	//Declare URL string for API call
 	String callURLString;
-	//
-	String mainURL;
-	
-	String apiKey;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -187,4 +184,11 @@ public class MainActivity extends Activity {
 		
 		//setContentView(R.layout.activity_main);
 	}
+
+	/*@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.main, menu);
+		return true;
+	}*/
 }

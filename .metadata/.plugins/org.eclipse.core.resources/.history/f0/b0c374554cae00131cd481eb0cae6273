@@ -41,10 +41,6 @@ public class MainActivity extends Activity {
 	static String TAG = "NETWORK DATA - MAINACTIVITY";
 	//Declare URL string for API call
 	String callURLString;
-	//
-	String mainURL;
-	
-	String apiKey;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
