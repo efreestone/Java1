@@ -222,16 +222,8 @@ public class MainActivity extends Activity {
         //Override xml layout with my linear layout
 		setContentView(myLayout); 
 		
-		//connectionStatus(myContext);
-		if (connectionStatus(myContext)) {
-			displayTempView.setText("Yay it works!!");
-		} else {
-			displayTempView.setText("You broke it!!");
-		}
-		
 		//setContentView(R.layout.activity_main);
 	}
-
 	
 	//Method to test network
 	public Boolean connectionStatus(Context myContext){
@@ -241,19 +233,14 @@ public class MainActivity extends Activity {
 		//Create connectivity manager
 		ConnectivityManager cm = (ConnectivityManager) myContext.getSystemService(Context.CONNECTIVITY_SERVICE);
 		NetworkInfo ni = cm.getActiveNetworkInfo();
-		//Check if network info is null
 		if(ni != null){
-			//Check if network info is connected
 			if (ni.isConnected()) {
-				System.out.println(TAG + " Connection Type: " + ni.getTypeName());
-				conn = true;
+				
 			}
+			
 		}
-		return conn;
-	}
-	
-	public static String getResponse() {
 		
-		return null;
+		
+		return conn;
 	}
 }

@@ -249,11 +249,8 @@ public class MainActivity extends Activity {
 				conn = true;
 			}
 		}
-		return conn;
-	}
-	
-	public static String getResponse() {
 		
-		return null;
+		
+		return conn;
 	}
 }

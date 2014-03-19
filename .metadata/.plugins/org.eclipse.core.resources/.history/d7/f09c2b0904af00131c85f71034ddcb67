@@ -7,8 +7,6 @@ package com.elijahfreestone.java1project3;
 
 import com.elijahfreestone.cities.CitiesJSON;
 
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Context;
@@ -48,10 +46,8 @@ public class MainActivity extends Activity {
 	String callURLString;
 	//
 	String mainURL;
-	//Decalare Weather Underground API key
-	String apiKey = "8204b5c9bf753afb";
 	
-	String testURL = "http://api.wunderground.com/api/8204b5c9bf753afb/conditions/q/CO/Loveland.json";
+	String apiKey;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -222,38 +218,6 @@ public class MainActivity extends Activity {
         //Override xml layout with my linear layout
 		setContentView(myLayout); 
 		
-		//connectionStatus(myContext);
-		if (connectionStatus(myContext)) {
-			displayTempView.setText("Yay it works!!");
-		} else {
-			displayTempView.setText("You broke it!!");
-		}
-		
 		//setContentView(R.layout.activity_main);
-	}
-
-	
-	//Method to test network
-	public Boolean connectionStatus(Context myContext){
-		//Set connection bool to false
-		Boolean conn = false;
-		
-		//Create connectivity manager
-		ConnectivityManager cm = (ConnectivityManager) myContext.getSystemService(Context.CONNECTIVITY_SERVICE);
-		NetworkInfo ni = cm.getActiveNetworkInfo();
-		//Check if network info is null
-		if(ni != null){
-			//Check if network info is connected
-			if (ni.isConnected()) {
-				System.out.println(TAG + " Connection Type: " + ni.getTypeName());
-				conn = true;
-			}
-		}
-		return conn;
-	}
-	
-	public static String getResponse() {
-		
-		return null;
 	}
 }

@@ -222,16 +222,8 @@ public class MainActivity extends Activity {
         //Override xml layout with my linear layout
 		setContentView(myLayout); 
 		
-		//connectionStatus(myContext);
-		if (connectionStatus(myContext)) {
-			displayTempView.setText("Yay it works!!");
-		} else {
-			displayTempView.setText("You broke it!!");
-		}
-		
 		//setContentView(R.layout.activity_main);
 	}
-
 	
 	//Method to test network
 	public Boolean connectionStatus(Context myContext){
@@ -249,11 +241,8 @@ public class MainActivity extends Activity {
 				conn = true;
 			}
 		}
-		return conn;
-	}
-	
-	public static String getResponse() {
 		
-		return null;
+		
+		return conn;
 	}
 }
