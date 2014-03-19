@@ -23,12 +23,15 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView.OnItemSelectedListener;
+import android.widget.Toast;
 
 public class MainActivity extends Activity {
 	//Declare context
 	Context myContext;
 	//Declare array of cities
 	String[] citiesArray;
+	//Declare current array
+	String[] currentArray;
 	//Declare temp measurement array
 	String[] tempMeasureArray;
 	//Declare selected city
@@ -54,7 +57,9 @@ public class MainActivity extends Activity {
 		myContext = this;
 		//Grab cities array from strings.xml resource file
 		citiesArray = getResources().getStringArray(R.array.cities_array);
-		//Grab temp measure array for strings.xml resource file
+		//Grab current array from strings.xml resource file
+		currentArray = getResources().getStringArray(R.array.current_forecast);
+		//Grab temp measure array from strings.xml resource file
 		tempMeasureArray = getResources().getStringArray(R.array.temp_measurement);
 				
 		//Create linear layout instance
@@ -79,7 +84,7 @@ public class MainActivity extends Activity {
 		//Add title with centered params
 	    myLayout.addView(titleView, centerParams);
 		        
-	    //Create spinner adapter
+	    //Create city spinner adapter
 	    ArrayAdapter<String> citySpinnerAdapter = new ArrayAdapter<String>(myContext, android.R.layout.simple_spinner_item, citiesArray);
 	  	//Set dropdown of city spinner
      	citySpinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -149,7 +154,35 @@ public class MainActivity extends Activity {
 						
 				//Change text of measure title to show what is currently selected (fahrenheit or celsius).
 				measureTitleView.setText(selectedTempMeasurement + " currently selected");
+			}
+		});
+      	
+      	//Create current/forecast spinner adapter
+      	ArrayAdapter<String> currentSpinnerAdapter = new ArrayAdapter<String>(myContext, android.R.layout.simple_spinner_item, currentArray);
+      	//Set dropdown of current spinner
+      	currentSpinnerAdapter.setDropDownViewResource(android.R.layout.simple_list_item_single_choice);
+      	
+      	//Create current spinner
+      	Spinner currentSpinner = new Spinner(myContext);
+      	//Set adapter
+      	currentSpinner.setAdapter(currentSpinnerAdapter);
+      	//Set layout params
+      	currentSpinner.setLayoutParams(spinnerParams);
+      	//Add current spinner to my layout
+      	myLayout.addView(currentSpinner);
+      	
+      	//Set on item selected for current spinner
+      	currentSpinner.setOnItemSelectedListener(new OnItemSelectedListener() {
+      		//Use unimplemented methods, modified as per spinner video for better clarity
+			@Override
+			public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+				//Create toast to test spinner selection
+				Toast.makeText(myContext, "You have selected " + currentArray[position], Toast.LENGTH_LONG).show();
+			}
 
+			@Override
+			public void onNothingSelected(AdapterView<?> arg0) {
+						
 			}
 		});
 		      	
