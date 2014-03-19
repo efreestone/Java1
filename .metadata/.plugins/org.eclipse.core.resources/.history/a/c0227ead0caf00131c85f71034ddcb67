@@ -282,7 +282,7 @@ public class MainActivity extends Activity {
 			StringBuffer responseBuffer = new StringBuffer();
 			//While loop
 			while ((byteRead = bin.read(contextByte)) != -1) {
-				//Set response string to receive bytes
+				//Set response string to recieve bytes
 				response = new String(contextByte, 0, byteRead);
 				//Append response to response buffer
 				responseBuffer.append(response);
