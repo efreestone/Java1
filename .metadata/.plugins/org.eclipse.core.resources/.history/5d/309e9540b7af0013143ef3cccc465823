@@ -63,23 +63,21 @@ public class CitiesJSON {
 	}
 
 	// Create read JSON method
-	public static String readJSON(String selectedCity) throws JSONException {
+	public static String readJSON(String selectedCity) {
 		// String for results and city info
 		String results, city, state, fahrenheit, celsius, tempSelected;
 		// Create new JSON object to hold object from buildJSON
 		//JSONObject newObject = buildJSON();
-		JSONObject newObject = new JSONObject(selectedCity);
-		
-		System.out.println("New Obj: " + newObject);
+		JSONObject newObject = new JSONObject();
 
 		// public String passedTemp = MainActivity
 		try {
 			System.out.println("Read JSON try");
 			// Get query object and apply to strings for use in results string
-			city = newObject.getJSONObject("current_observation").getJSONObject("display_location").getString("city");
-			state = newObject.getJSONObject("current_observation").getJSONObject("display_location").getString("state");
-			fahrenheit = newObject.getJSONObject("current_observation").getString("temp_f");
-			celsius = newObject.getJSONObject("current_observation").getString("temp_c");
+			city = newObject.getJSONObject("cities").getJSONObject(selectedCity).getString("cityName");
+			state = newObject.getJSONObject("cities").getJSONObject(selectedCity).getString("stateName");
+			fahrenheit = newObject.getJSONObject("cities").getJSONObject(selectedCity).getString("fahrenheitTemp");
+			celsius = newObject.getJSONObject("cities").getJSONObject(selectedCity).getString("celsiusTemp");
 
 			// Set tempSelected based on selected temp in MainActivity. Defaults to Fahrenheit if nothing is selected
 			if (MainActivity.selectedTempMeasurement.equalsIgnoreCase("Fahrenheit")) {
@@ -189,14 +187,9 @@ public class CitiesJSON {
 		//Override onPostExecute to display response
 		@Override
 		protected void onPostExecute(String result) {
-			try {
-				MainActivity.displayTempView.setText(readJSON(result));
-				super.onPostExecute(result);
-				//System.out.println(result);
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			MainActivity.displayTempView.setText(result);
+			super.onPostExecute(result);
+			//System.out.println(result);
 		}
 			
 	}
