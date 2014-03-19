@@ -69,6 +69,8 @@ public class CitiesJSON {
 		// Create new JSON object to hold object from buildJSON
 		//JSONObject newObject = buildJSON();
 		JSONObject newObject = new JSONObject(selectedCity);
+		
+		System.out.println("New Obj: " + newObject);
 
 		// public String passedTemp = MainActivity
 		try {

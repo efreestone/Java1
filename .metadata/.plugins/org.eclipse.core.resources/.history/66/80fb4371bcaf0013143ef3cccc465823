@@ -239,10 +239,9 @@ public class MainActivity extends Activity {
 					//Create alert dialog for no connection
 					AlertDialog alertDialog = new AlertDialog.Builder(MainActivity.this).create();
 					// Setting dialog title
-					alertDialog.setTitle(R.string.noConnectionTitle);
+					alertDialog.setTitle("Error");
 					// Setting message
-					//alertDialog.setMessage("This application requires internet access. Please check your network connection and try again.");
-					alertDialog.setMessage(myContext.getString(R.string.noConnectionAlert));
+					alertDialog.setMessage("This application requires internet access. Please check your network connection and try again."); //R.string.noConnectionAlert
 					// Setting OK Button
 					alertDialog.setButton(DialogInterface.BUTTON_POSITIVE, "OK", (DialogInterface.OnClickListener) null);
 					// Showing Alert Message
