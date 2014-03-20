@@ -55,14 +55,14 @@ public class MainActivity extends Activity {
 	public static TextView displayTempView;
 	//Declare TAG constant
 	static String TAG = "NETWORK DATA - MAINACTIVITY";
-	//Declare URL string for API call
-	String callURLString;
-	//
-	String mainURL;
-	//Declare Weather Underground API key
-	String apiKey = "8204b5c9bf753afb";
+	//Decalre URL string for setting city
+	String cityURLString;
+	//Declare URL string for setting type of call between current weather and 3-day forecast
+	String callURLModString;
+	//Declare main url string to build api call on
+	String mainURLString;
 	
-	public static String testURL; //= "http://api.wunderground.com/api/8204b5c9bf753afb/conditions/q/CO/Loveland.json";
+	public static String fullURLString; //= "http://api.wunderground.com/api/8204b5c9bf753afb/conditions/q/CO/Loveland.json";
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -76,6 +76,8 @@ public class MainActivity extends Activity {
 		currentArray = getResources().getStringArray(R.array.current_forecast);
 		//Grab temp measure array from strings.xml resource file
 		tempMeasureArray = getResources().getStringArray(R.array.temp_measurement);
+		//Grab main url string from resources
+		mainURLString = myContext.getString(R.string.mainURLString);
 				
 		//Create linear layout instance
 		LinearLayout myLayout = new LinearLayout(this);
@@ -125,22 +127,33 @@ public class MainActivity extends Activity {
 				selectedCity = citiesArray[position];
 				//System.out.println(selectedCity);
 				if (selectedCity.equalsIgnoreCase("Loveland")) {
-					testURL = "http://api.wunderground.com/api/8204b5c9bf753afb/conditions/q/CO/Loveland.json";
+					//Set city url string to Loveland
+					cityURLString = myContext.getString(R.string.lovelandString);
+					//testURL = "http://api.wunderground.com/api/8204b5c9bf753afb/conditions/q/CO/Loveland.json";
 				} else if (selectedCity.equalsIgnoreCase("LosAngeles")) {
-					testURL = "http://api.wunderground.com/api/8204b5c9bf753afb/conditions/q/CA/Los_Angeles.json";
-					System.out.println("testURL changed to " + testURL);
+					//Set city url string to Los Angeles
+					cityURLString = myContext.getString(R.string.losSngelesString);
+					//testURL = "http://api.wunderground.com/api/8204b5c9bf753afb/conditions/q/CA/Los_Angeles.json";
 				} else if (selectedCity.equalsIgnoreCase("NewYork")) {
-					testURL = "http://api.wunderground.com/api/8204b5c9bf753afb/conditions/q/NY/New_York.json";
+					//Set city url string to New York
+					cityURLString = myContext.getString(R.string.newYorkString);
+					//testURL = "http://api.wunderground.com/api/8204b5c9bf753afb/conditions/q/NY/New_York.json";
 				} else if (selectedCity.equalsIgnoreCase("Chicago")) {
-					testURL = "http://api.wunderground.com/api/8204b5c9bf753afb/conditions/q/IL/Chicago.json";
+					//Set city url string to Chicago
+					cityURLString = myContext.getString(R.string.chicagoString);
+					//testURL = "http://api.wunderground.com/api/8204b5c9bf753afb/conditions/q/IL/Chicago.json";
 				} else if (selectedCity.equalsIgnoreCase("Orlando")) {
-					testURL = "http://api.wunderground.com/api/8204b5c9bf753afb/conditions/q/FL/Orlando.json";
+					//Set city url string to Orlando
+					cityURLString = myContext.getString(R.string.orlandoString);
+					//testURL = "http://api.wunderground.com/api/8204b5c9bf753afb/conditions/q/FL/Orlando.json";
 				}
 			}
 
 			@Override
 			public void onNothingSelected(AdapterView<?> arg0) {
-				testURL = "http://api.wunderground.com/api/8204b5c9bf753afb/conditions/q/CO/Loveland.json";	
+				//Set city url string to Loveland by default if the spinner is not activated
+				cityURLString = myContext.getString(R.string.lovelandString);
+				//testURL = "http://api.wunderground.com/api/8204b5c9bf753afb/conditions/q/CO/Loveland.json";	
 			}
 		});
 		      	
@@ -204,12 +217,24 @@ public class MainActivity extends Activity {
 			@Override
 			public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 				//Create toast to test spinner selection
-				Toast.makeText(myContext, "You have selected " + currentArray[position], Toast.LENGTH_LONG).show();
+				//Toast.makeText(myContext, "You have selected " + currentArray[position], Toast.LENGTH_LONG).show();
+				
+				//Cast selected modifier to a string
+				String selectedMod = currentArray[position];
+				//Check the modifier string and set callURLModString accordingly
+				if (selectedMod.equalsIgnoreCase("Current Weather")) {
+					//Set call modifier to conditions
+					callURLModString = myContext.getString(R.string.conditionsURLString);
+				} else {
+					//Set call modifier to forecast
+					callURLModString = myContext.getString(R.string.forecastURLString);
+				}
 			}
 
 			@Override
 			public void onNothingSelected(AdapterView<?> arg0) {
-						
+				//Set call modifier to conditions by default if spinner isn't activated
+				callURLModString = myContext.getString(R.string.conditionsURLString);
 			}
 		});
 		      	
@@ -227,28 +252,24 @@ public class MainActivity extends Activity {
 				
 			@Override
 			public void onClick(View v) {
-				//Get info from city JSON object 
-				//String selectedCityFromEnum = CitiesJSON.readJSON(selectedCity);
-				//displayTempView.setText(selectedCityFromEnum);
+				//Build url based on selections of spinners
+				fullURLString = mainURLString + callURLModString + cityURLString;
 				
 				if (CitiesJSON.connectionStatus(myContext)) {
 					//displayTempView.setText("Yay it works!!");
 					CitiesJSON.getData data = new getData();
-					data.execute(testURL);
+					data.execute(fullURLString);
 				} else {
 					//Create alert dialog for no connection
 					AlertDialog alertDialog = new AlertDialog.Builder(MainActivity.this).create();
-					// Setting dialog title
+					// Set dialog title to Connection Error
 					alertDialog.setTitle(R.string.noConnectionTitle);
-					// Setting message
-					//alertDialog.setMessage("This application requires internet access. Please check your network connection and try again.");
+					// Set alert message. setMessage only has a charSequence version so egtString must be used.
 					alertDialog.setMessage(myContext.getString(R.string.noConnectionAlert));
-					// Setting OK Button
+					// Set OK Button
 					alertDialog.setButton(DialogInterface.BUTTON_POSITIVE, "OK", (DialogInterface.OnClickListener) null);
-					// Showing Alert Message
+					// Show Alert Dailog 
 					alertDialog.show();
-					
-					//displayTempView.setText("You broke it!!");
 				}
 			}
 		});
@@ -265,109 +286,6 @@ public class MainActivity extends Activity {
         //Override xml layout with my linear layout
 		setContentView(myLayout); 
 		
-		//connectionStatus(myContext);
-//		if (CitiesJSON.connectionStatus(myContext)) {
-//			//displayTempView.setText("Yay it works!!");
-//			CitiesJSON.getData data = new getData();
-//			data.execute(testURL);
-//		} else {
-//			displayTempView.setText("You broke it!!");
-//		}
-		
 		//setContentView(R.layout.activity_main);
 	}
-
-	
-//	//Method to test network
-//	public Boolean connectionStatus(Context myContext){
-//		//Set connection bool to false
-//		Boolean connectionBool = false;
-//		
-//		//Create connectivity manager
-//		ConnectivityManager cm = (ConnectivityManager) myContext.getSystemService(Context.CONNECTIVITY_SERVICE);
-//		NetworkInfo ni = cm.getActiveNetworkInfo();
-//		//Check if network info is null
-//		if(ni != null){
-//			//Check if network info is connected
-//			if (ni.isConnected()) {
-//				System.out.println(TAG + " Connection Type: " + ni.getTypeName());
-//				//Set connection bool to true
-//				connectionBool = true;
-//			}
-//		}
-//		//Return connection bool
-//		return connectionBool;
-//	}
-//	
-//	//Method to get response from url
-//	public static String getResponse(URL url) {
-//		//Create string for response
-//		String response = "";
-//		
-//		try {
-//			//Open connection
-//			URLConnection connection = url.openConnection();
-//			//Create buffered input stream
-//			BufferedInputStream bin = new BufferedInputStream(connection.getInputStream());
-//			//Create byte and set to 1024
-//			byte[] contextByte = new byte[1024];
-//			//Create int for bytes read
-//			int byteRead = 0;
-//			//Create string buffer for adding response to
-//			StringBuffer responseBuffer = new StringBuffer();
-//			//While loop
-//			while ((byteRead = bin.read(contextByte)) != -1) {
-//				//Set response string to receive bytes
-//				response = new String(contextByte, 0, byteRead);
-//				//Append response to response buffer
-//				responseBuffer.append(response);
-//			}
-//			
-//			//Fill response string with response buffer once while loop completes
-//			response = responseBuffer.toString();
-//			//System.out.println(TAG + response);
-//			//Log response
-//			Log.i(TAG, response);
-//		} catch (IOException e) {
-//			//Set response to error
-//			response = "URL broken";
-//			//e.printStackTrace();
-//			//Log error
-//			Log.e(TAG, "Something went wrong", e);
-//		}
-//		//Return reponse string
-//		return response;
-//	}
-//	
-//	//Async getData class to call url
-//	static class getData extends AsyncTask<String, Void, String>{
-//
-//		@Override
-//		protected String doInBackground(String... params) {
-//			String responseString = "";
-//			try {
-//				//Apply testURL to local url
-//				URL url = new URL(testURL);
-//				//Call getResponse and apply to responseString
-//				responseString = getResponse(url);
-//			} catch (MalformedURLException e) {
-//				//Set response string to error
-//				responseString = "Something went wrong in getData";
-//				//e.printStackTrace();
-//				//Log error
-//				Log.e(TAG, "ERROR: ", e);
-//			}
-//			//Return responseString
-//			return responseString;
-//		}
-//		
-//		//Override onPostExecute to display response
-//		@Override
-//		protected void onPostExecute(String result) {
-//			displayTempView.setText(result);
-//			super.onPostExecute(result);
-//			System.out.println(result);
-//		}
-//		
-//	}
 }

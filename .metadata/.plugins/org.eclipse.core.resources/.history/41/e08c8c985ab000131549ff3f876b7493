@@ -12,16 +12,6 @@
     <string name="noConnectionTitle">Connection Error</string>
     <string name="noConnectionAlert">This application requires internet access. Please check your network connection and try again.</string>
     
-    <string name="mainURLString">http://api.wunderground.com/api/8204b5c9bf753afb/</string>
-    <string name="conditionsURLString">conditions/q/</string>
-    <string name="forecastURLString">forecast/q/</string>
-    
-    <string name="lovelandString">CO/Loveland.json</string>
-    <string name="losSngelesString">CA/Los_Angeles.json</string>
-    <string name="newYorkString">NY/New_York.json</string>
-    <string name="chicagoString">IL/Chicago.json</string>
-    <string name="orlandoString">FL/Orlando.json</string>
-    
     <string-array name="cities_array">
         <item >Loveland</item>
         <item >LosAngeles</item>

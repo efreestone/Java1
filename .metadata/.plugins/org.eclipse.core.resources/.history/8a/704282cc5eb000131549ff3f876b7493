@@ -170,7 +170,7 @@ public class CitiesJSON {
 			responseString = "";
 			try {
 				//Apply testURL to local url
-				URL url = new URL(MainActivity.fullURLString);
+				URL url = new URL(MainActivity.testURL);
 				//Call getResponse and apply to responseString
 				responseString = getResponse(url);
 			} catch (MalformedURLException e) {
@@ -192,6 +192,7 @@ public class CitiesJSON {
 				super.onPostExecute(result);
 				//System.out.println(result);
 			} catch (Exception e) {
+				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
