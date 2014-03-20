@@ -21,8 +21,12 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.GridView;
 import android.widget.LinearLayout;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.RadioGroup.OnCheckedChangeListener;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.elijahfreestone.cities.CitiesJSON;
 import com.elijahfreestone.cities.CitiesJSON.getData;
@@ -155,36 +159,85 @@ public class MainActivity extends Activity {
         //Add title with centered params
         myLayout.addView(measureTitleView, centerParams);
 	      	
-      	//Create grid view adapter
-      	ArrayAdapter<String> tempGridAdapter = new ArrayAdapter<String>(myContext, android.R.layout.simple_list_item_1, tempMeasureArray); 
-      	//Create grid view
-      	final GridView tempGridView = new GridView(myContext);
-      	//Set grid layout params
-      	tempGridView.setLayoutParams(centerParams);
-      	//Set grid to 2 column
-      	tempGridView.setNumColumns(2);
-      	//Set grid adapter
-      	tempGridView.setAdapter(tempGridAdapter);
-      	//Add grid view to my layout
-      	myLayout.addView(tempGridView);
+//      	//Create grid view adapter
+//      	ArrayAdapter<String> tempGridAdapter = new ArrayAdapter<String>(myContext, android.R.layout.simple_list_item_1, tempMeasureArray); 
+//      	//Create grid view
+//      	final GridView tempGridView = new GridView(myContext);
+//      	//Set grid layout params
+//      	tempGridView.setLayoutParams(centerParams);
+//      	//Set grid to 2 column
+//      	tempGridView.setNumColumns(2);
+//      	//Set grid adapter
+//      	tempGridView.setAdapter(tempGridAdapter);
+//      	//Add grid view to my layout
+//      	myLayout.addView(tempGridView);
+//		      	
+//     	//Set on item click for grid view
+//      	tempGridView.setOnItemClickListener(new OnItemClickListener() {
+//      		//Use unimplemented methods, modified as per grid view video for better clarity
+//			@Override
+//			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//				//Toast.makeText(myContext, "You have selected " + tempMeasureArray[position] + " to display temp", Toast.LENGTH_LONG).show();
+//					
+//				//Set temp measurement from grid selection
+//				selectedTempMeasurement = tempMeasureArray[position];
+//						
+//				//Change text of measure title to show what is currently selected (fahrenheit or celsius).
+//				measureTitleView.setText(selectedTempMeasurement + " currently selected");
+//			}
+//		});
+      	
+      	//Create center params used to center various items
+      	LinearLayout.LayoutParams radioParams = new LinearLayout.LayoutParams(
+      				                LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
+      	//Set gravity to center
+      	radioParams.gravity = Gravity.CENTER;
+      	
+      	//Create fahrenheit radio
+      	RadioButton fahrenheitRadio = new RadioButton(myContext);
+      	//Set text to fahrenheit from resources
+      	fahrenheitRadio.setText(R.string.fahrenheitString);
+      	//Create celsius radio
+      	RadioButton celsiusRadio = new RadioButton(myContext);
+      	//Set text to celsius from resources
+      	celsiusRadio.setText(R.string.celsiusString);
+      	//Create radio group
+      	RadioGroup tempUnitRadioGroup = new RadioGroup(myContext);
+      	//Add radio buttons to group
+      	tempUnitRadioGroup.addView(fahrenheitRadio, radioParams);
+      	tempUnitRadioGroup.addView(celsiusRadio, radioParams);
+      	//Set group orientation
+      	tempUnitRadioGroup.setOrientation(LinearLayout.HORIZONTAL);
+      	//Set default checked to fahrenheit
+      	tempUnitRadioGroup.check(fahrenheitRadio.getId());
+      	//Set params for radio group
+      	myLayout.addView(tempUnitRadioGroup, centerParams);
       	
       	//Initialize selected temp measurement (fahrenheit or celsius). If nothing is selected, default is Fahrenheit
-      	selectedTempMeasurement = "Fahrenheit";
-		      	
-     	//Set on item click for grid view
-      	tempGridView.setOnItemClickListener(new OnItemClickListener() {
-      		//Use unimplemented methods, modified as per grid view video for better clarity
+      	selectedTempMeasurement = myContext.getString(R.string.fahrenheitString);
+      	
+      	//Set on checked change for radios
+      	tempUnitRadioGroup.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+      		
 			@Override
-			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-				//Toast.makeText(myContext, "You have selected " + tempMeasureArray[position] + " to display temp", Toast.LENGTH_LONG).show();
-					
-				//Set temp measurement from grid selection
-				selectedTempMeasurement = tempMeasureArray[position];
-						
-				//Change text of measure title to show what is currently selected (fahrenheit or celsius).
-				measureTitleView.setText(selectedTempMeasurement + " currently selected");
+			public void onCheckedChanged(RadioGroup group, int checkedId) {
+				//Cast id of radio selected
+				RadioButton selectedButton = (RadioButton) findViewById(checkedId);
+				//Cast text from radio selected
+				String radioText = selectedButton.getText().toString();
+				//Toast.makeText(myContext, "You have selected " + radioText + " to display temp", Toast.LENGTH_LONG).show();	
+				
+				//If celsius is selected. Defaults to fahrenheit if nothing selected
+				if (radioText.equalsIgnoreCase("Celsius")) {
+					//Set selected temp to celsius
+					selectedTempMeasurement = myContext.getString(R.string.celsiusString);
+				} else {
+					//Set selected temp to fahrenheit
+					selectedTempMeasurement = myContext.getString(R.string.fahrenheitString);
+				}
 			}
 		});
+      	
       	
       	//Create current/forecast spinner adapter
       	ArrayAdapter<String> currentSpinnerAdapter = new ArrayAdapter<String>(myContext, android.R.layout.simple_spinner_item, currentArray);

@@ -6,7 +6,7 @@
     <string name="hello_world">Hello world!</string>
     
     <string name="titleString">Local Weather</string>
-    <string name="measureTitleString">Please select units of measurement</string>
+    <string name="measureTitleString">Units of measurement</string>
     <string name="weatherButtonString">Get Weather</string>
     <string name="displayTempString">Please select a city and measurement unit</string>
     <string name="noConnectionTitle">Connection Error</string>
@@ -21,6 +21,9 @@
     <string name="newYorkString">NY/New_York.json</string>
     <string name="chicagoString">IL/Chicago.json</string>
     <string name="orlandoString">FL/Orlando.json</string>
+    
+    <string name="fahrenheitString">Fahrenheit</string>
+    <string name="celsiusString">Celsius</string>
     
     <string-array name="cities_array">
         <item >Loveland</item>

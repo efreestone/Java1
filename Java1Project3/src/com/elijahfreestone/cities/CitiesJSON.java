@@ -25,7 +25,7 @@ import com.elijahfreestone.java1project3.MainActivity;
 
 public class CitiesJSON {
 	//Declare TAG constant
-	static String TAG = "NETWORK DATA - MAINACTIVITY";
+	static String TAG = "NETWORK DATA - CITIESJSON";
 	//Declare response string
 	static String responseString;
 
@@ -36,12 +36,11 @@ public class CitiesJSON {
 		//Strings for forecast info if 3-day is selected
 		String forecastDay, highTempFahr, lowTempFahr, highTempCels, lowTempCels, highTempSelected, lowTempSelected, objectInfo;
 		StringBuffer forecastBuffer;
-		//Create new JSON object to hold object from buildJSON
-		//JSONObject newObject = buildJSON();
+		//Create new JSON object to hold object from API call
 		JSONObject newObject = new JSONObject(selectedCity);
 
-		// public String passedTemp = MainActivity
 		try {
+			//Initialize object info and forecast buffer
 			objectInfo = "";
 			forecastBuffer = new StringBuffer();
 			//Check if 3-day forecast selected. Forecast has a nested JSONArray while conditions doesn't
@@ -54,10 +53,10 @@ public class CitiesJSON {
 					//System.out.println("Object " + i + forecastArray.getJSONObject(i));
 					//Grab day for forecast
 					forecastDay = forecastArray.getJSONObject(i).getJSONObject("date").getString("weekday");
-					//High/low in fahrenheit
+					//Grab high/low in fahrenheit
 					highTempFahr = forecastArray.getJSONObject(i).getJSONObject("high").getString("fahrenheit");
 					lowTempFahr = forecastArray.getJSONObject(i).getJSONObject("low").getString("fahrenheit");
-					//High/low in celsius
+					//Grab high/low in celsius
 					highTempCels = forecastArray.getJSONObject(i).getJSONObject("high").getString("celsius");
 					lowTempCels = forecastArray.getJSONObject(i).getJSONObject("low").getString("celsius");
 					
@@ -92,10 +91,10 @@ public class CitiesJSON {
 
 				//Set tempSelected based on selected temp in MainActivity.
 				//Defaults to Fahrenheit if nothing is selected
-				if (MainActivity.selectedTempMeasurement.equalsIgnoreCase("Fahrenheit")) {
-					tempSelected = fahrenheit + " ¡F";
-				} else {
+				if (MainActivity.selectedTempMeasurement.equalsIgnoreCase("Celsius")) {
 					tempSelected = celsius + " ¡C";
+				} else {
+					tempSelected = fahrenheit + " ¡F";
 				}
 
 				// Set results string with city info strings
@@ -201,6 +200,7 @@ public class CitiesJSON {
 		@Override
 		protected void onPostExecute(String result) {
 			try {
+				//Parse JSON and display according to settings selected
 				MainActivity.displayTempView.setText(readJSON(result));
 				super.onPostExecute(result);
 				//System.out.println(result);
