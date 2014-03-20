@@ -79,7 +79,6 @@ public class CitiesJSON {
 					forecastBuffer.append(objectInfo);
 				}
 				
-				//Cast forecast buffer into results
 				results = forecastBuffer.toString();
 				
 			} else {
