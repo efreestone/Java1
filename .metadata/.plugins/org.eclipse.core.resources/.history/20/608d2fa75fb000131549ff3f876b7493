@@ -27,6 +27,38 @@ public class CitiesJSON {
 	static String TAG = "NETWORK DATA - MAINACTIVITY";
 	//Declare response string
 	static String responseString;
+	
+//	// Create JSON build method
+//	public static JSONObject buildJSON() {
+//		// Create cities object
+//		JSONObject citiesObject = new JSONObject();
+//		try {
+//			// Create query object
+//			JSONObject queryObject = new JSONObject();
+//
+//			// Create city object in query object
+//			for (CitiesEnum city : CitiesEnum.values()) {
+//				// Create city object
+//				JSONObject cityObject = new JSONObject();
+//
+//				// Add city info to city object
+//				cityObject.put("cityName", city.getCityName());
+//				cityObject.put("stateName", city.getStateName());
+//				cityObject.put("fahrenheitTemp", city.getFahrenheitTemp());
+//				cityObject.put("celsiusTemp", city.getCelsiusTemp());
+//				// Add city object to query object
+//				queryObject.put(city.name().toString(), cityObject);
+//			}
+//			// Add query to cities objects
+//			citiesObject.put("cities", queryObject);
+//
+//		} catch (JSONException e) {
+//			e.printStackTrace();
+//			// System.out.println("Build JSON catch");
+//		}
+//		// Return the cities object
+//		return citiesObject;
+//	}
 
 	// Create read JSON method
 	public static String readJSON(String selectedCity) throws JSONException {
