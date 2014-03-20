@@ -72,10 +72,9 @@ public class CitiesJSON {
 						highTempSelected = highTempCels + " ¡C";
 						lowTempSelected = lowTempCels + " ¡C";
 					}
-
-					//Format object info to be appended
+					
+					//System.out.println(forecastDay + ": F " + highTempFahr + " C " + highTempCels + "\r\n");
 					objectInfo = forecastDay + ": High " + highTempSelected + " / Low " + lowTempSelected + "\r\n";
-					//Append object info for each day
 					forecastBuffer.append(objectInfo);
 				}
 				

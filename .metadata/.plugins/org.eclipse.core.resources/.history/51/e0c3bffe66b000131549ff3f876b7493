@@ -31,77 +31,38 @@ public class CitiesJSON {
 
 	// Create read JSON method
 	public static String readJSON(String selectedCity) throws JSONException {
-		//Strings for results and city info if current weather is selected
+		// String for results and city info
 		String results, city, state, fahrenheit, celsius, tempSelected;
-		//Strings for forecast info if 3-day is selected
-		String forecastDay, highTempFahr, lowTempFahr, highTempCels, lowTempCels, highTempSelected, lowTempSelected, objectInfo;
-		StringBuffer forecastBuffer;
-		//Create new JSON object to hold object from buildJSON
+		// Create new JSON object to hold object from buildJSON
 		//JSONObject newObject = buildJSON();
 		JSONObject newObject = new JSONObject(selectedCity);
 
 		// public String passedTemp = MainActivity
 		try {
-			objectInfo = "";
-			forecastBuffer = new StringBuffer();
-			//Check if 3-day forecast selected. Forecast has a nested JSONArray while conditions doesn't
 			if (MainActivity.callURLModString.equalsIgnoreCase("forecast/q/")) {
 				//Grab JSON array from newObject
-				JSONArray forecastArray = newObject.getJSONObject("forecast").getJSONObject("simpleforecast").getJSONArray("forecastday");
-				//System.out.println(forecastArray.getJSONObject(1));
+				JSONArray forecastArray = newObject.getJSONObject("simpleforecast").getJSONArray("forecastday");
+				System.out.println(forecastArray);
 				
-				for (int i = 0; i < forecastArray.length(); i++) {
-					//System.out.println("Object " + i + forecastArray.getJSONObject(i));
-					//Grab day for forecast
-					forecastDay = forecastArray.getJSONObject(i).getJSONObject("date").getString("weekday");
-					//High/low in fahrenheit
-					highTempFahr = forecastArray.getJSONObject(i).getJSONObject("high").getString("fahrenheit");
-					lowTempFahr = forecastArray.getJSONObject(i).getJSONObject("low").getString("fahrenheit");
-					//High/low in celsius
-					highTempCels = forecastArray.getJSONObject(i).getJSONObject("high").getString("celsius");
-					lowTempCels = forecastArray.getJSONObject(i).getJSONObject("low").getString("celsius");
-					
-					//Set tempSelected based on selected temp in MainActivity.
-					//Defaults to Fahrenheit if nothing is selected
-					if (MainActivity.selectedTempMeasurement.equalsIgnoreCase("Fahrenheit")) {
-						//Set high/low to fahrenheit
-						highTempSelected = highTempFahr + " ¡F";
-						lowTempSelected = lowTempFahr + " ¡F";
-					} else {
-						//Set high/low to celsius
-						highTempSelected = highTempCels + " ¡C";
-						lowTempSelected = lowTempCels + " ¡C";
-					}
-
-					//Format object info to be appended
-					objectInfo = forecastDay + ": High " + highTempSelected + " / Low " + lowTempSelected + "\r\n";
-					//Append object info for each day
-					forecastBuffer.append(objectInfo);
-				}
-				
-				results = forecastBuffer.toString();
-				
-			} else {
-				System.out.println("Read JSON try");
-				//Get query object and apply to strings for use in results string
-				city = newObject.getJSONObject("current_observation").getJSONObject("display_location").getString("city");
-				state = newObject.getJSONObject("current_observation").getJSONObject("display_location").getString("state");
-				fahrenheit = newObject.getJSONObject("current_observation").getString("temp_f");
-				celsius = newObject.getJSONObject("current_observation").getString("temp_c");
-
-				//Set tempSelected based on selected temp in MainActivity.
-				//Defaults to Fahrenheit if nothing is selected
-				if (MainActivity.selectedTempMeasurement.equalsIgnoreCase("Fahrenheit")) {
-					tempSelected = fahrenheit + " ¡F";
-				} else {
-					tempSelected = celsius + " ¡C";
-				}
-
-				// Set results string with city info strings
-				results = "City: " + city + "\r\n" + "State: " + state + "\r\n"
-						+ "Current Temp: " + tempSelected + "\r\n";
 			}
-			
+			System.out.println("Read JSON try");
+			// Get query object and apply to strings for use in results string
+			city = newObject.getJSONObject("current_observation").getJSONObject("display_location").getString("city");
+			state = newObject.getJSONObject("current_observation").getJSONObject("display_location").getString("state");
+			fahrenheit = newObject.getJSONObject("current_observation").getString("temp_f");
+			celsius = newObject.getJSONObject("current_observation").getString("temp_c");
+
+			// Set tempSelected based on selected temp in MainActivity. Defaults to Fahrenheit if nothing is selected
+			if (MainActivity.selectedTempMeasurement.equalsIgnoreCase("Fahrenheit")) {
+				tempSelected = fahrenheit + " ¡F";
+			} else {
+				tempSelected = celsius + " ¡C";
+			}
+
+			// Set results string with city info strings
+			results = "City: " + city + "\r\n" 
+					+ "State: " + state + "\r\n"
+					+ "Current Temp: " + tempSelected + "\r\n";
 		} catch (JSONException e) {
 			e.printStackTrace();
 			results = e.toString();

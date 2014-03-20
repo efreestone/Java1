@@ -225,10 +225,11 @@ public class MainActivity extends Activity {
 				if (selectedMod.equalsIgnoreCase("Current Weather")) {
 					//Set call modifier to conditions
 					callURLModString = myContext.getString(R.string.conditionsURLString);
-				} else if (selectedMod.equalsIgnoreCase("3-day Forecast")) {
+				} else {
 					//Set call modifier to forecast
-					callURLModString = myContext.getString(R.string.forecastURLString);
-					//System.out.println(callURLModString);
+					//callURLModString = myContext.getString(R.string.forecastURLString);
+					callURLModString = "3-day Forecast";
+					System.out.println(callURLModString);
 				}
 			}
 

@@ -227,8 +227,9 @@ public class MainActivity extends Activity {
 					callURLModString = myContext.getString(R.string.conditionsURLString);
 				} else if (selectedMod.equalsIgnoreCase("3-day Forecast")) {
 					//Set call modifier to forecast
-					callURLModString = myContext.getString(R.string.forecastURLString);
-					//System.out.println(callURLModString);
+					//callURLModString = myContext.getString(R.string.forecastURLString);
+					callURLModString = "forecast/q/";
+					System.out.println(callURLModString);
 				}
 			}
 

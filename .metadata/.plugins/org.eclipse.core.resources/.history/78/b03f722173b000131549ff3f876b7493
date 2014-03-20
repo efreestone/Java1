@@ -52,30 +52,13 @@ public class CitiesJSON {
 				
 				for (int i = 0; i < forecastArray.length(); i++) {
 					//System.out.println("Object " + i + forecastArray.getJSONObject(i));
-					//Grab day for forecast
+					//
 					forecastDay = forecastArray.getJSONObject(i).getJSONObject("date").getString("weekday");
-					//High/low in fahrenheit
 					highTempFahr = forecastArray.getJSONObject(i).getJSONObject("high").getString("fahrenheit");
-					lowTempFahr = forecastArray.getJSONObject(i).getJSONObject("low").getString("fahrenheit");
-					//High/low in celsius
 					highTempCels = forecastArray.getJSONObject(i).getJSONObject("high").getString("celsius");
-					lowTempCels = forecastArray.getJSONObject(i).getJSONObject("low").getString("celsius");
 					
-					//Set tempSelected based on selected temp in MainActivity.
-					//Defaults to Fahrenheit if nothing is selected
-					if (MainActivity.selectedTempMeasurement.equalsIgnoreCase("Fahrenheit")) {
-						//Set high/low to fahrenheit
-						highTempSelected = highTempFahr + " ¡F";
-						lowTempSelected = lowTempFahr + " ¡F";
-					} else {
-						//Set high/low to celsius
-						highTempSelected = highTempCels + " ¡C";
-						lowTempSelected = lowTempCels + " ¡C";
-					}
-
-					//Format object info to be appended
-					objectInfo = forecastDay + ": High " + highTempSelected + " / Low " + lowTempSelected + "\r\n";
-					//Append object info for each day
+					//System.out.println(forecastDay + ": F " + highTempFahr + " C " + highTempCels + "\r\n");
+					objectInfo = forecastDay + ": F " + highTempFahr + ": C " + highTempCels + "\r\n";
 					forecastBuffer.append(objectInfo);
 				}
 				
@@ -91,7 +74,8 @@ public class CitiesJSON {
 
 				//Set tempSelected based on selected temp in MainActivity.
 				//Defaults to Fahrenheit if nothing is selected
-				if (MainActivity.selectedTempMeasurement.equalsIgnoreCase("Fahrenheit")) {
+				if (MainActivity.selectedTempMeasurement
+						.equalsIgnoreCase("Fahrenheit")) {
 					tempSelected = fahrenheit + " ¡F";
 				} else {
 					tempSelected = celsius + " ¡C";

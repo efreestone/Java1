@@ -58,7 +58,7 @@ public class MainActivity extends Activity {
 	//Decalre URL string for setting city
 	String cityURLString;
 	//Declare URL string for setting type of call between current weather and 3-day forecast
-	public static String callURLModString;
+	String callURLModString;
 	//Declare main url string to build api call on
 	String mainURLString;
 	
@@ -225,10 +225,9 @@ public class MainActivity extends Activity {
 				if (selectedMod.equalsIgnoreCase("Current Weather")) {
 					//Set call modifier to conditions
 					callURLModString = myContext.getString(R.string.conditionsURLString);
-				} else if (selectedMod.equalsIgnoreCase("3-day Forecast")) {
+				} else {
 					//Set call modifier to forecast
 					callURLModString = myContext.getString(R.string.forecastURLString);
-					//System.out.println(callURLModString);
 				}
 			}
 
