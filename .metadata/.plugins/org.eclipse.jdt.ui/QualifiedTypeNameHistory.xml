@@ -26,7 +26,6 @@
 <fullyQualifiedTypeName name="java.lang.Object"/>
 <fullyQualifiedTypeName name="android.widget.GridView"/>
 <fullyQualifiedTypeName name="com.elijahfreestone.java1project2.R.drawable"/>
-<fullyQualifiedTypeName name="android.view.Gravity"/>
 <fullyQualifiedTypeName name="android.widget.RelativeLayout"/>
 <fullyQualifiedTypeName name="android.widget.ArrayAdapter"/>
 <fullyQualifiedTypeName name="java.lang.Boolean"/>
@@ -47,7 +46,6 @@
 <fullyQualifiedTypeName name="android.app.AlertDialog"/>
 <fullyQualifiedTypeName name="android.content.DialogInterface"/>
 <fullyQualifiedTypeName name="android.app.AlertDialog.Builder"/>
-<fullyQualifiedTypeName name="com.elijahfreestone.java1project3.MainActivity"/>
 <fullyQualifiedTypeName name="org.json.JSONArray"/>
 <fullyQualifiedTypeName name="android.R"/>
 <fullyQualifiedTypeName name="android.R.layout"/>
@@ -60,4 +58,6 @@
 <fullyQualifiedTypeName name="com.elijahfreestone.java1project3.R.array"/>
 <fullyQualifiedTypeName name="java.lang.String"/>
 <fullyQualifiedTypeName name="com.elijahfreestone.java1project3.R.string"/>
+<fullyQualifiedTypeName name="com.elijahfreestone.java1project3.MainActivity"/>
+<fullyQualifiedTypeName name="android.view.Gravity"/>
 </qualifiedTypeNameHistroy>

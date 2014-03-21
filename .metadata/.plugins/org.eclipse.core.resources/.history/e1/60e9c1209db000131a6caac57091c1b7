@@ -120,9 +120,9 @@ public class CitiesJSON {
 		Boolean connectionBool = false;
 			
 		//Create connectivity manager
-		ConnectivityManager connectionManager = (ConnectivityManager) myContext.getSystemService(Context.CONNECTIVITY_SERVICE);
+		ConnectivityManager cm = (ConnectivityManager) myContext.getSystemService(Context.CONNECTIVITY_SERVICE);
 		//Create Network info
-		NetworkInfo networkInfo = connectionManager.getActiveNetworkInfo();
+		NetworkInfo networkInfo = cm.getActiveNetworkInfo();
 		//Check if network info is null
 		if(networkInfo != null){
 			//Check if network info is connected

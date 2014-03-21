@@ -286,7 +286,6 @@ public class MainActivity extends Activity {
 	      	
         //Override xml layout with my linear layout
 		setContentView(myLayout); 
-		
 		//setContentView(R.layout.activity_main);
 	}
 }
