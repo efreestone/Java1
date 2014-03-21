@@ -20,7 +20,6 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.util.Log;
-import android.view.Gravity;
 
 import com.elijahfreestone.java1project3.MainActivity;
 
@@ -203,8 +202,6 @@ public class CitiesJSON {
 			try {
 				//Parse JSON and display according to settings selected
 				MainActivity.displayTempView.setText(readJSON(result));
-				//Recenter display text
-				MainActivity.displayTempView.setGravity(Gravity.CENTER);
 				super.onPostExecute(result);
 				//System.out.println(result);
 			} catch (Exception e) {

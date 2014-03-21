@@ -149,6 +149,12 @@ public class MainActivity extends Activity {
       	measureTitleView.setText(R.string.measureTitleString);
         //Add title with centered params
         myLayout.addView(measureTitleView, centerParams);
+	      	
+      	//Create radio params
+      	LinearLayout.LayoutParams radioParams = new LinearLayout.LayoutParams(
+      				                LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
+      	//Set gravity to center
+      	radioParams.gravity = Gravity.CENTER;
       	
       	//Create fahrenheit radio
       	RadioButton fahrenheitRadio = new RadioButton(myContext);
