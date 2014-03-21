@@ -37,5 +37,10 @@
         <item >Current Weather</item>
         <item >3-day Forecast</item>
     </string-array>
+    
+    <string-array name="temp_measurement">
+        <item >Fahrenheit</item>
+        <item >Celsius</item>
+    </string-array>
 
 </resources>

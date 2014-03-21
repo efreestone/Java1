@@ -64,6 +64,8 @@ public class MainActivity extends Activity {
 		citiesArray = getResources().getStringArray(R.array.cities_array);
 		//Grab current array from strings.xml resource file
 		currentArray = getResources().getStringArray(R.array.current_forecast);
+		//Grab temp measure array from strings.xml resource file
+		tempMeasureArray = getResources().getStringArray(R.array.temp_measurement);
 		//Grab main url string from resources
 		mainURLString = myContext.getString(R.string.mainURLString);
 				

@@ -64,6 +64,8 @@ public class MainActivity extends Activity {
 		citiesArray = getResources().getStringArray(R.array.cities_array);
 		//Grab current array from strings.xml resource file
 		currentArray = getResources().getStringArray(R.array.current_forecast);
+		//Grab temp measure array from strings.xml resource file
+		tempMeasureArray = getResources().getStringArray(R.array.temp_measurement);
 		//Grab main url string from resources
 		mainURLString = myContext.getString(R.string.mainURLString);
 				
@@ -98,9 +100,7 @@ public class MainActivity extends Activity {
       	Spinner citySpinner = new Spinner(myContext);
       	//Set adapter
 	   	citySpinner.setAdapter(citySpinnerAdapter);
-	   	//Create city spinner params
     	LayoutParams spinnerParams = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
-    	//Set params
       	citySpinner.setLayoutParams(spinnerParams);
       	//Add spinner to my layout
 	   	myLayout.addView(citySpinner);
@@ -119,25 +119,31 @@ public class MainActivity extends Activity {
 				if (selectedCity.equalsIgnoreCase("Loveland")) {
 					//Set city url string to Loveland
 					cityURLString = myContext.getString(R.string.lovelandString);
+					//testURL = "http://api.wunderground.com/api/8204b5c9bf753afb/conditions/q/CO/Loveland.json";
 				} else if (selectedCity.equalsIgnoreCase("LosAngeles")) {
 					//Set city url string to Los Angeles
 					cityURLString = myContext.getString(R.string.losSngelesString);
+					//testURL = "http://api.wunderground.com/api/8204b5c9bf753afb/conditions/q/CA/Los_Angeles.json";
 				} else if (selectedCity.equalsIgnoreCase("NewYork")) {
 					//Set city url string to New York
 					cityURLString = myContext.getString(R.string.newYorkString);
+					//testURL = "http://api.wunderground.com/api/8204b5c9bf753afb/conditions/q/NY/New_York.json";
 				} else if (selectedCity.equalsIgnoreCase("Chicago")) {
 					//Set city url string to Chicago
 					cityURLString = myContext.getString(R.string.chicagoString);
+					//testURL = "http://api.wunderground.com/api/8204b5c9bf753afb/conditions/q/IL/Chicago.json";
 				} else if (selectedCity.equalsIgnoreCase("Orlando")) {
 					//Set city url string to Orlando
 					cityURLString = myContext.getString(R.string.orlandoString);
+					//testURL = "http://api.wunderground.com/api/8204b5c9bf753afb/conditions/q/FL/Orlando.json";
 				}
 			}
 
 			@Override
 			public void onNothingSelected(AdapterView<?> arg0) {
 				//Set city url string to Loveland by default if the spinner is not activated
-				cityURLString = myContext.getString(R.string.lovelandString);	
+				cityURLString = myContext.getString(R.string.lovelandString);
+				//testURL = "http://api.wunderground.com/api/8204b5c9bf753afb/conditions/q/CO/Loveland.json";	
 			}
 		});
 		      	
@@ -150,6 +156,34 @@ public class MainActivity extends Activity {
         //Add title with centered params
         myLayout.addView(measureTitleView, centerParams);
 	      	
+//      	//Create grid view adapter
+//      	ArrayAdapter<String> tempGridAdapter = new ArrayAdapter<String>(myContext, android.R.layout.simple_list_item_1, tempMeasureArray); 
+//      	//Create grid view
+//      	final GridView tempGridView = new GridView(myContext);
+//      	//Set grid layout params
+//      	tempGridView.setLayoutParams(centerParams);
+//      	//Set grid to 2 column
+//      	tempGridView.setNumColumns(2);
+//      	//Set grid adapter
+//      	tempGridView.setAdapter(tempGridAdapter);
+//      	//Add grid view to my layout
+//      	myLayout.addView(tempGridView);
+//		      	
+//     	//Set on item click for grid view
+//      	tempGridView.setOnItemClickListener(new OnItemClickListener() {
+//      		//Use unimplemented methods, modified as per grid view video for better clarity
+//			@Override
+//			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//				//Toast.makeText(myContext, "You have selected " + tempMeasureArray[position] + " to display temp", Toast.LENGTH_LONG).show();
+//					
+//				//Set temp measurement from grid selection
+//				selectedTempMeasurement = tempMeasureArray[position];
+//						
+//				//Change text of measure title to show what is currently selected (fahrenheit or celsius).
+//				measureTitleView.setText(selectedTempMeasurement + " currently selected");
+//			}
+//		});
+      	
       	//Create center params used to center various items
       	LinearLayout.LayoutParams radioParams = new LinearLayout.LayoutParams(
       				                LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
@@ -261,7 +295,6 @@ public class MainActivity extends Activity {
 				//Build url based on selections of spinners
 				fullURLString = mainURLString + callURLModString + cityURLString;
 				
-				//Check network connection
 				if (CitiesJSON.connectionStatus(myContext)) {
 					//displayTempView.setText("Yay it works!!");
 					CitiesJSON.getData data = new getData();

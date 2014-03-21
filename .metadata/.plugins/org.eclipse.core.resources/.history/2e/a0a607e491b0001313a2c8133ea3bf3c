@@ -80,8 +80,8 @@ public class CitiesJSON {
 				
 				//Cast forecast buffer into results
 				results = forecastBuffer.toString();
-			//Hit is Current Weather is selected in second spinner
-			} else { 
+				
+			} else {
 				System.out.println("Read JSON try");
 				//Get query object and apply to strings for use in results string
 				city = newObject.getJSONObject("current_observation").getJSONObject("display_location").getString("city");
@@ -120,12 +120,12 @@ public class CitiesJSON {
 			
 		//Create connectivity manager
 		ConnectivityManager cm = (ConnectivityManager) myContext.getSystemService(Context.CONNECTIVITY_SERVICE);
-		//Create Network info
 		NetworkInfo networkInfo = cm.getActiveNetworkInfo();
 		//Check if network info is null
 		if(networkInfo != null){
 			//Check if network info is connected
 			if (networkInfo.isConnected()) {
+				//System.out.println(TAG + " Connection Type: " + ni.getTypeName());
 				//Set connection bool to true
 				connectionBool = true;
 			}
@@ -207,6 +207,7 @@ public class CitiesJSON {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		}	
+		}
+			
 	}
 }
