@@ -120,11 +120,11 @@ public class CitiesJSON {
 			
 		//Create connectivity manager
 		ConnectivityManager cm = (ConnectivityManager) myContext.getSystemService(Context.CONNECTIVITY_SERVICE);
-		NetworkInfo networkInfo = cm.getActiveNetworkInfo();
+		NetworkInfo ni = cm.getActiveNetworkInfo();
 		//Check if network info is null
-		if(networkInfo != null){
+		if(ni != null){
 			//Check if network info is connected
-			if (networkInfo.isConnected()) {
+			if (ni.isConnected()) {
 				//System.out.println(TAG + " Connection Type: " + ni.getTypeName());
 				//Set connection bool to true
 				connectionBool = true;
@@ -143,7 +143,7 @@ public class CitiesJSON {
 			//Open connection
 			URLConnection connection = url.openConnection();
 			//Create buffered input stream
-			BufferedInputStream bufferedInputStream = new BufferedInputStream(connection.getInputStream());
+			BufferedInputStream bin = new BufferedInputStream(connection.getInputStream());
 			//Create byte and set to 1024
 			byte[] contextByte = new byte[1024];
 			//Create int for bytes read
@@ -151,7 +151,7 @@ public class CitiesJSON {
 			//Create string buffer for adding response to
 			StringBuffer responseBuffer = new StringBuffer();
 			//While loop
-			while ((byteRead = bufferedInputStream.read(contextByte)) != -1) {
+			while ((byteRead = bin.read(contextByte)) != -1) {
 				//Set response string to receive bytes
 				response = new String(contextByte, 0, byteRead);
 				//Append response to response buffer
