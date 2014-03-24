@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move type &apos;com.elijahfreestone.cities.CitiesJSON.getData&apos; in &apos;com.elijahfreestone.cities.CitiesJSON&apos; to new file&#x0A;- Original project: &apos;Java1Project4&apos;&#x0A;- Original element: &apos;com.elijahfreestone.cities.CitiesJSON.getData&apos;&#x0A;- Field name: &apos;citiesJSON&apos;&#x0A;- Declare field &apos;final&apos;" description="Move type &apos;getData&apos; to new file" field="false" fieldName="citiesJSON" final="true" flags="786438" id="org.eclipse.jdt.ui.move.inner" input="/src&lt;com.elijahfreestone.cities{CitiesJSON.java[CitiesJSON[getData" mandatory="false" possible="false" stamp="1395694300303" version="1.0"/>
+</session>
