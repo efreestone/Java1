@@ -5,7 +5,6 @@
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
     
-    <!-- Title and button strings -->
     <string name="titleString">Local Weather</string>
     <string name="measureTitleString">Units of measurement</string>
     <string name="weatherButtonString">Get Weather</string>
@@ -26,11 +25,10 @@
     <string name="chicagoString">IL/Chicago.json</string>
     <string name="orlandoString">FL/Orlando.json</string>
     
-    <!-- Radio Button Text -->
+    
     <string name="fahrenheitString">Fahrenheit</string>
     <string name="celsiusString">Celsius</string>
     
-    <!-- Cities array for first spinner -->
     <string-array name="cities_array">
         <item >Loveland</item>
         <item >LosAngeles</item>
@@ -39,7 +37,6 @@
         <item >Orlando</item>
     </string-array>
     
-    <!-- Array for second spinner -->
     <string-array name="current_forecast">
         <item >Current Weather</item>
         <item >3-day Forecast</item>
