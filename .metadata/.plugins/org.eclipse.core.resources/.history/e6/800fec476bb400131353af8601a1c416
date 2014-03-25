@@ -12,6 +12,7 @@
         
         <!-- Title -->
         <TextView 
+            android:id="@+id/titleView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
@@ -25,6 +26,7 @@
         
         <!-- Measurement Title -->
         <TextView 
+            android:id="@+id/measureTitleView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
@@ -67,15 +69,6 @@
             android:width="250dp"
             android:text="@string/weatherButtonString"/>
         
-	<!-- </LinearLayout> -->
-	
-	<!-- Bottom Gridlayout for temp display -->
-	<GridLayout 
-	    android:id="@+id/tempGrid"
-	    android:layout_width="match_parent"
-	    android:layout_height="wrap_content"
-	    android:columnCount="2">
-        
         <!-- Display Temp -->
         <TextView 
             android:id="@+id/displayTempView"
@@ -84,7 +77,6 @@
             android:gravity="center"
             android:text="@string/displayTempString"/>
         
-	</GridLayout>
-        
+    <!-- </LinearLayout> -->
 
 </LinearLayout>
