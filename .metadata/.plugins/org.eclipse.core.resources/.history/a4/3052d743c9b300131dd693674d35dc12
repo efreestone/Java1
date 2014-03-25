@@ -256,9 +256,7 @@ public class MainActivity extends Activity {
 				//Check network connection
 				if (NetworkConnection.connectionStatus(myContext)) {
 					//displayTempView.setText("Yay it works!!");
-					//Create instance of get data class which is located in NetworkConnection.jar
 					getData data = new getData();
-					//Call get data and pass the full URL for the api call
 					data.execute(fullURLString);
 				} else {
 					//Create alert dialog for no connection
@@ -287,5 +285,6 @@ public class MainActivity extends Activity {
         //Override xml layout with my linear layout
 		setContentView(myLayout); 
 		//setContentView(R.layout.activity_main);
+		
 	}
 }
