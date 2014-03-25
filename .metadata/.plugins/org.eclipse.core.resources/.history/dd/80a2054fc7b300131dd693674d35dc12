@@ -119,7 +119,7 @@ public class MainActivity extends Activity {
 					cityURLString = myContext.getString(R.string.lovelandString);
 				} else if (selectedCity.equalsIgnoreCase("Los Angeles")) {
 					//Set city url string to Los Angeles
-					cityURLString = myContext.getString(R.string.losAngelesString);
+					cityURLString = myContext.getString(R.string.losSngelesString);
 				} else if (selectedCity.equalsIgnoreCase("New York")) {
 					//Set city url string to New York
 					cityURLString = myContext.getString(R.string.newYorkString);

@@ -117,10 +117,10 @@ public class MainActivity extends Activity {
 				if (selectedCity.equalsIgnoreCase("Loveland")) {
 					//Set city url string to Loveland
 					cityURLString = myContext.getString(R.string.lovelandString);
-				} else if (selectedCity.equalsIgnoreCase("Los Angeles")) {
+				} else if (selectedCity.equalsIgnoreCase("LosAngeles")) {
 					//Set city url string to Los Angeles
-					cityURLString = myContext.getString(R.string.losAngelesString);
-				} else if (selectedCity.equalsIgnoreCase("New York")) {
+					cityURLString = myContext.getString(R.string.losSngelesString);
+				} else if (selectedCity.equalsIgnoreCase("NewYork")) {
 					//Set city url string to New York
 					cityURLString = myContext.getString(R.string.newYorkString);
 				} else if (selectedCity.equalsIgnoreCase("Chicago")) {

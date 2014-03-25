@@ -21,7 +21,7 @@
     <string name="forecastURLString">forecast/q/</string>
     <!-- City URL strings -->
     <string name="lovelandString">CO/Loveland.json</string>
-    <string name="losAngelesString">CA/Los_Angeles.json</string>
+    <string name="losSngelesString">CA/Los_Angeles.json</string>
     <string name="newYorkString">NY/New_York.json</string>
     <string name="chicagoString">IL/Chicago.json</string>
     <string name="orlandoString">FL/Orlando.json</string>

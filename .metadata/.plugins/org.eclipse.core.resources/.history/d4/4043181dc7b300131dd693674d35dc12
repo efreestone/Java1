@@ -21,7 +21,7 @@
     <string name="forecastURLString">forecast/q/</string>
     <!-- City URL strings -->
     <string name="lovelandString">CO/Loveland.json</string>
-    <string name="losAngelesString">CA/Los_Angeles.json</string>
+    <string name="losSngelesString">CA/Los_Angeles.json</string>
     <string name="newYorkString">NY/New_York.json</string>
     <string name="chicagoString">IL/Chicago.json</string>
     <string name="orlandoString">FL/Orlando.json</string>
@@ -33,8 +33,8 @@
     <!-- Cities array for first spinner -->
     <string-array name="cities_array">
         <item >Loveland</item>
-        <item >Los Angeles</item>
-        <item >New York</item>
+        <item >LosAngeles</item>
+        <item >NewYork</item>
         <item >Chicago</item>
         <item >Orlando</item>
     </string-array>
