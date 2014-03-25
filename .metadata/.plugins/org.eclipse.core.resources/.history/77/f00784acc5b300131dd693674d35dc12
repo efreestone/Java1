@@ -35,6 +35,8 @@ public class MainActivity extends Activity {
 	String[] citiesArray;
 	//Declare current array
 	String[] currentArray;
+	//Declare temp measurement array
+	//String[] tempMeasureArray;
 	//Declare selected city
 	String selectedCity;
 	//Declare selected temp measurement
