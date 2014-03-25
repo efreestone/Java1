@@ -69,14 +69,6 @@
             android:width="250dp"
             android:text="@string/weatherButtonString"/>
         
-        <!-- Display Temp -->
-        <TextView 
-            android:id="@+id/displayTempView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="@string/displayTempString"/>
-        
     <!-- </LinearLayout> -->
 
 </LinearLayout>

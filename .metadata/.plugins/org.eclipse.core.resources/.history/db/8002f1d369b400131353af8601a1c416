@@ -5,25 +5,28 @@
 
 package com.elijahfreestone.java1project4;
 
+import com.elijahfreestone.cities.NetworkConnection;
+import com.elijahfreestone.cities.NetworkConnection.getData;
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup.LayoutParams;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RadioGroup.OnCheckedChangeListener;
 import android.widget.Spinner;
 import android.widget.TextView;
-
-import com.elijahfreestone.cities.NetworkConnection;
-import com.elijahfreestone.cities.NetworkConnection.getData;
 
 public class MainActivity extends Activity {
 	//Declare context
@@ -64,29 +67,27 @@ public class MainActivity extends Activity {
 		//Grab main url string from resources
 		mainURLString = myContext.getString(R.string.mainURLString);
 				
-//		//Create linear layout instance
-//		LinearLayout myLayout = new LinearLayout(this);
-//		//Set orientation
-//		myLayout.setOrientation(LinearLayout.VERTICAL);
-//		//Set my layout parameters to match the parent item
-//		myLayout.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
-//				        
-//		//Create center params used to center various items
-//		LinearLayout.LayoutParams centerParams = new LinearLayout.LayoutParams(
-//				                LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
-//		//Set gravity to center
-//		centerParams.gravity = Gravity.CENTER;
+		//Create linear layout instance
+		LinearLayout myLayout = new LinearLayout(this);
+		//Set orientation
+		myLayout.setOrientation(LinearLayout.VERTICAL);
+		//Set my layout parameters to match the parent item
+		myLayout.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
+				        
+		//Create center params used to center various items
+		LinearLayout.LayoutParams centerParams = new LinearLayout.LayoutParams(
+				                LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+		//Set gravity to center
+		centerParams.gravity = Gravity.CENTER;
 
-//		//Create title text view
-//		TextView titleView = new TextView(this);
-//		//Set text appearance for title
-//		titleView.setTextAppearance(this, android.R.attr.textAppearanceLarge);
-//		//Set text for title from resources
-//		titleView.setText(R.string.titleString);
-//		//Add title with centered params
-//	    myLayout.addView(titleView, centerParams);
-		
-		//TextView titleView = (TextView) findViewById(R.id.titleView);
+		//Create title text view
+		TextView titleView = new TextView(this);
+		//Set text appearance for title
+		titleView.setTextAppearance(this, android.R.attr.textAppearanceLarge);
+		//Set text for title from resources
+		titleView.setText(R.string.titleString);
+		//Add title with centered params
+	    myLayout.addView(titleView, centerParams);
 		        
 	    //Create city spinner adapter
 	    ArrayAdapter<String> citySpinnerAdapter = new ArrayAdapter<String>(myContext, android.R.layout.simple_spinner_item, citiesArray);
@@ -97,14 +98,13 @@ public class MainActivity extends Activity {
 //      	Spinner citySpinner = new Spinner(myContext);
 //      	//Set adapter
 //	   	citySpinner.setAdapter(citySpinnerAdapter);
-//	   	//Create city spinner params
-//    	LayoutParams spinnerParams = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
-//    	Set params
+	   	//Create city spinner params
+    	LayoutParams spinnerParams = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
+    	//Set params
 //      	citySpinner.setLayoutParams(spinnerParams);
 //      	//Add spinner to my layout
 //	   	myLayout.addView(citySpinner);
      	
-     	//Create city spinner from layout xml and set adapter
      	Spinner citySpinner = (Spinner) findViewById(R.id.citySpinner);
      	citySpinner.setAdapter(citySpinnerAdapter);
 		      	
@@ -149,16 +149,14 @@ public class MainActivity extends Activity {
 			}
 		});
 		      	
-//      	//Create measurement title text view
-//      	final TextView measureTitleView = new TextView(this);
-//      	//Set text appearance for title
-//      	measureTitleView.setTextAppearance(this, android.R.attr.textAppearanceLarge);
-//   		//Set text for title from resources
-//      	measureTitleView.setText(R.string.measureTitleString);
-//        //Add title with centered params
-//        myLayout.addView(measureTitleView, centerParams);
-      	
-      	//TextView measureTitleView = (TextView) findViewById(R.id.measureTitleView);
+      	//Create measurement title text view
+      	final TextView measureTitleView = new TextView(this);
+      	//Set text appearance for title
+      	measureTitleView.setTextAppearance(this, android.R.attr.textAppearanceLarge);
+   		//Set text for title from resources
+      	measureTitleView.setText(R.string.measureTitleString);
+        //Add title with centered params
+        myLayout.addView(measureTitleView, centerParams);
       	
 //      	//Create fahrenheit radio
 //      	RadioButton fahrenheitRadio = new RadioButton(myContext);
@@ -180,7 +178,6 @@ public class MainActivity extends Activity {
 //      	//Set params for radio group
 //      	myLayout.addView(tempUnitRadioGroup, centerParams);
         
-      	//Create radio group from layout xml to grab selection
         RadioGroup tempUnitRadioGroup = (RadioGroup) findViewById(R.id.tempUnitRadioGroup);
       	
       	//Initialize selected temp measurement (fahrenheit or celsius). If nothing is selected, default is Fahrenheit
@@ -223,7 +220,6 @@ public class MainActivity extends Activity {
 //      	//Add current spinner to my layout
 //      	myLayout.addView(currentSpinner);
       	
-      	//Create current spinner from layout xml and set adapter
       	Spinner currentSpinner = (Spinner) findViewById(R.id.currentSpinner);
       	currentSpinner.setAdapter(currentSpinnerAdapter);
       	
@@ -264,7 +260,6 @@ public class MainActivity extends Activity {
 //        //Add button to my layout with centered params
 //        myLayout.addView(weatherButton, centerParams);
       	
-      	//Create weather button from layout xml
       	Button weatherButton = (Button) findViewById(R.id.weatherButton);
         
         //Create onClick event for weather button
@@ -306,7 +301,6 @@ public class MainActivity extends Activity {
 //        //Add title with centered params
 //        myLayout.addView(displayTempView, centerParams);
         
-        //Set display temp view from layout xml to allow adding json results
         displayTempView = (TextView) findViewById(R.id.displayTempView);
 	      	
         //Override xml layout with my linear layout
