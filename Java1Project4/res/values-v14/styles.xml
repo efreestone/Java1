@@ -15,9 +15,9 @@
             <item name="android:typeface">sans</item>
         </style>
         
-        <style name="backgroundStyle">
+        <!-- <style name="backgroundStyle">
             <item name="android:background">@android:color/background_light</item>
-        </style>
+        </style> -->
         
         <style name="displayStyle">
             <item name="android:textSize">18sp</item>
