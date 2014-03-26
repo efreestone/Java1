@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/parentView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
@@ -15,7 +16,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="@string/titleString"/>
+            android:text="@string/titleString"
+            style="@style/labelStyle"/>
         
         <!-- City Spinner -->
         <Spinner 
@@ -28,7 +30,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="@string/measureTitleString"/>
+            android:text="@string/measureTitleString"
+            style="@style/labelStyle"/>
         
         <!-- Measurement Radio Buttons -->
         <RadioGroup
@@ -56,7 +59,9 @@
         <Spinner 
             android:id="@+id/currentSpinner"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:dropDownVerticalOffset="-45dp"
+            android:popupBackground="@android:color/darker_gray"/>
         
         <!-- Get Weather Button -->
         <Button 
@@ -85,6 +90,5 @@
             android:text="@string/displayTempString"/>
         
 	</GridLayout>
-        
 
 </LinearLayout>

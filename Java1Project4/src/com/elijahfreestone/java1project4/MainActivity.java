@@ -10,12 +10,14 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RadioGroup.OnCheckedChangeListener;
@@ -266,9 +268,18 @@ public class MainActivity extends Activity {
       	
       	//Create weather button from layout xml
       	Button weatherButton = (Button) findViewById(R.id.weatherButton);
+      	
+      	//final ImageView weatherIcon = (ImageView) findViewById(R.id.weatherIcon);
+      	//weatherIcon.setImageResource(R.drawable.logo_130x80);
+      	
+      	final LinearLayout inflateView = (LinearLayout) findViewById(R.id.parentView);
+		LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+		final View myView = inflater.inflate(R.layout.icon_layout, null);
         
         //Create onClick event for weather button
         weatherButton.setOnClickListener(new OnClickListener() {
+        	//Create bool for use in checking if inflateView has been added
+        	Boolean viewInflated = false;
 				
 			@Override
 			public void onClick(View v) {
@@ -277,12 +288,21 @@ public class MainActivity extends Activity {
 				
 				//Check network connection
 				if (NetworkConnection.connectionStatus(myContext)) {
+					
 					//displayTempView.setText("Yay it works!!");
 					//Create instance of get data class which is located in NetworkConnection.jar
 					getData data = new getData();
 					//Call get data and pass the full URL for the api call
 					data.execute(fullURLString);
+					
+					//Check viewInflated bool
+					if (viewInflated == false) {
+						//Set bool to true
+						viewInflated = true;
+						inflateView.addView(myView); 
+					}
 				} else {
+					//viewInflated = false;
 					//Create alert dialog for no connection
 					AlertDialog alertDialog = new AlertDialog.Builder(MainActivity.this).create();
 					// Set dialog title to Connection Error

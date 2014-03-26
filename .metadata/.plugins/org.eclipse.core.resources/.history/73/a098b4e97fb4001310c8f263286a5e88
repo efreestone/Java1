@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+    <!-- Top Linear Layout with controls -->
+    <!-- <LinearLayout 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"> -->
+        
+        <!-- Title -->
+        <TextView 
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/titleString"/>
+        
+        <!-- City Spinner -->
+        <Spinner 
+            android:id="@+id/citySpinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        
+        <!-- Measurement Title -->
+        <TextView 
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/measureTitleString"/>
+        
+        <!-- Measurement Radio Buttons -->
+        <RadioGroup
+            android:id="@+id/tempUnitRadioGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="horizontal" >
+
+            <RadioButton
+                android:id="@+id/fahrenheitRadio"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/fahrenheitString" 
+                android:checked="true"/>
+
+            <RadioButton
+                android:id="@+id/celsiusRadio"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/celsiusString"/>
+        </RadioGroup>
+        
+        <!-- Current Spinner -->
+        <Spinner 
+            android:id="@+id/currentSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:dropDownVerticalOffset="-45dp"
+            android:popupBackground="@android:color/primary_text_dark"/>
+        
+        <!-- Get Weather Button -->
+        <Button 
+            android:id="@+id/weatherButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:width="250dp"
+            android:text="@string/weatherButtonString"/>
+        
+	<!-- </LinearLayout> -->
+	
+	<!-- Bottom Gridlayout for temp display -->
+	<GridLayout 
+	    android:id="@+id/tempGrid"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:columnCount="2">
+        
+        <!-- Display Temp -->
+        <TextView 
+            android:id="@+id/displayTempView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/displayTempString"/>
+        
+	</GridLayout>
+        
+
+</LinearLayout>

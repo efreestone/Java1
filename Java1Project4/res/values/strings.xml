@@ -44,5 +44,10 @@
         <item >Current Weather</item>
         <item >3-day Forecast</item>
     </string-array>
+    
+    <!-- Weather Icon -->
+    <string name="weatherIconAccString">Weather Icon</string>
+    <string name="weatherIconURL"></string>
+    <string name="weatherProvidedBy">Weather Provided By:</string>
 
 </resources>

@@ -16,11 +16,12 @@ public class CitiesJSON {
 	static String TAG = "NETWORK DATA - CITIESJSON";
 	//Declare response string
 	static String responseString;
+	public static String weatherIconString;
 
 	// Create read JSON method
 	public static String readJSON(String selectedCity) throws JSONException {
 		//Strings for results and city info if current weather is selected
-		String results, city, state, fahrenheit, celsius, tempSelected;
+		String results, city, state, fahrenheit, celsius, tempSelected, weatherIconString;
 		//Strings for forecast info if 3-day is selected
 		String forecastDay, highTempFahr, lowTempFahr, highTempCels, lowTempCels, highTempSelected, lowTempSelected, objectInfo;
 		StringBuffer forecastBuffer;
@@ -84,6 +85,9 @@ public class CitiesJSON {
 				} else {
 					tempSelected = fahrenheit + " ¡F";
 				}
+				
+				weatherIconString = newObject.getJSONObject("current_observation").getString("icon_url");
+				
 
 				// Set results string with city info strings
 				results = "City: " + city + "\r\n" + "State: " + state + "\r\n"
