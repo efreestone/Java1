@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Java1Project4</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    
+    <!-- Title and button strings -->
+    <string name="titleString">Local Weather</string>
+    <string name="measureTitleString">Units of measurement</string>
+    <string name="weatherButtonString">Get Weather</string>
+    <string name="displayTempString">Please select a city and measurement unit</string>
+    
+    <!-- Connection Alert strings -->
+    <string name="noConnectionTitle">Connection Error</string>
+    <string name="noConnectionAlert">This application requires internet access. Please check your network connection and try again.</string>
+    
+    <!-- Main URL strings -->
+    <string name="mainURLString">http://api.wunderground.com/api/8204b5c9bf753afb/</string>
+    <string name="conditionsURLString">conditions/q/</string>
+    <string name="forecastURLString">forecast/q/</string>
+    <!-- City URL strings -->
+    <string name="lovelandString">CO/Loveland.json</string>
+    <string name="losSngelesString">CA/Los_Angeles.json</string>
+    <string name="newYorkString">NY/New_York.json</string>
+    <string name="chicagoString">IL/Chicago.json</string>
+    <string name="orlandoString">FL/Orlando.json</string>
+    
+    <!-- Radio Button Text -->
+    <string name="fahrenheitString">Fahrenheit</string>
+    <string name="celsiusString">Celsius</string>
+    
+    <!-- Cities array for first spinner -->
+    <string-array name="cities_array">
+        <item >Loveland</item>
+        <item >LosAngeles</item>
+        <item >NewYork</item>
+        <item >Chicago</item>
+        <item >Orlando</item>
+    </string-array>
+    
+    <!-- Array for second spinner -->
+    <string-array name="current_forecast">
+        <item >Current Weather</item>
+        <item >3-day Forecast</item>
+    </string-array>
+
+</resources>
