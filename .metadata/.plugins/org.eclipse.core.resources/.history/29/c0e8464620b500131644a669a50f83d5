@@ -301,9 +301,6 @@ public class MainActivity extends Activity {
 						//Set bool to true
 						viewInflated = true;
 						inflateView.addView(myView); 
-						//displayTempView.setTextColor(Color.parseColor("#1919FF"));
-						//Change style of displayed temp/forecast
-						displayTempView.setTextAppearance(myContext, R.style.displayStyle);
 					}
 				} else {
 					//viewInflated = false;

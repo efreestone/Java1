@@ -41,7 +41,7 @@ public class CitiesJSON {
 				for (int i = 0; i < forecastArray.length(); i++) {
 					//System.out.println("Object " + i + forecastArray.getJSONObject(i));
 					//Grab day for forecast
-					forecastDay = forecastArray.getJSONObject(i).getJSONObject("date").getString("weekday_short");
+					forecastDay = forecastArray.getJSONObject(i).getJSONObject("date").getString("weekday");
 					//Grab high/low in fahrenheit
 					highTempFahr = forecastArray.getJSONObject(i).getJSONObject("high").getString("fahrenheit");
 					lowTempFahr = forecastArray.getJSONObject(i).getJSONObject("low").getString("fahrenheit");
@@ -62,7 +62,7 @@ public class CitiesJSON {
 					}
 
 					//Format object info to be appended
-					objectInfo = forecastDay + ":  High " + highTempSelected + " / Low " + lowTempSelected + "\r\n";
+					objectInfo = forecastDay + ": High " + highTempSelected + " / Low " + lowTempSelected + "\r\n";
 					//Append object info for each day
 					forecastBuffer.append(objectInfo);
 				}

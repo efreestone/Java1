@@ -89,7 +89,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="@string/displayTempString"
-            style="@style/labelStyle"/>
+            style="@style/displayStyle"/>
         
        <TextView 
            android:id="@+id/dayOne"

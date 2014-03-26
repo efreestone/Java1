@@ -5,11 +5,13 @@
 
 package com.elijahfreestone.java1project4;
 
+import android.R.color;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.provider.CalendarContract.Colors;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -301,9 +303,7 @@ public class MainActivity extends Activity {
 						//Set bool to true
 						viewInflated = true;
 						inflateView.addView(myView); 
-						//displayTempView.setTextColor(Color.parseColor("#1919FF"));
-						//Change style of displayed temp/forecast
-						displayTempView.setTextAppearance(myContext, R.style.displayStyle);
+						displayTempView.setTextColor("#1919FF");
 					}
 				} else {
 					//viewInflated = false;
