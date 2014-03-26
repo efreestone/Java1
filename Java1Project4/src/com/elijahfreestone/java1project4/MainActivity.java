@@ -106,6 +106,7 @@ public class MainActivity extends Activity {
 //      	//Add spinner to my layout
 //	   	myLayout.addView(citySpinner);
      	
+     	
      	//Create city spinner from layout xml and set adapter
      	Spinner citySpinner = (Spinner) findViewById(R.id.citySpinner);
      	citySpinner.setAdapter(citySpinnerAdapter);
@@ -269,8 +270,8 @@ public class MainActivity extends Activity {
       	//Create weather button from layout xml
       	Button weatherButton = (Button) findViewById(R.id.weatherButton);
       	
-      	//final ImageView weatherIcon = (ImageView) findViewById(R.id.weatherIcon);
-      	//weatherIcon.setImageResource(R.drawable.logo_130x80);
+//      	final ImageView weatherIcon = (ImageView) findViewById(R.id.weatherIcon);
+//      	weatherIcon.setImageResource(R.drawable.logo_130x80);
       	
       	final LinearLayout inflateView = (LinearLayout) findViewById(R.id.parentView);
 		LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);

@@ -21,7 +21,7 @@ public class CitiesJSON {
 	// Create read JSON method
 	public static String readJSON(String selectedCity) throws JSONException {
 		//Strings for results and city info if current weather is selected
-		String results, city, state, fahrenheit, celsius, tempSelected, weatherIconString;
+		String results, city, state, fahrenheit, celsius, tempSelected; //weatherIconString
 		//Strings for forecast info if 3-day is selected
 		String forecastDay, highTempFahr, lowTempFahr, highTempCels, lowTempCels, highTempSelected, lowTempSelected, objectInfo;
 		StringBuffer forecastBuffer;
