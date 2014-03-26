@@ -10086,3 +10086,6 @@ com.android.ddmlib.ShellCommandUnresponsiveException
 	at com.android.ddmlib.MonitorThread.callHandler(MonitorThread.java:414)
 	at com.android.ddmlib.MonitorThread.processClientActivity(MonitorThread.java:322)
 	at com.android.ddmlib.MonitorThread.run(MonitorThread.java:263)
+
+!ENTRY com.android.ide.eclipse.adt 2 0 2014-03-26 17:37:27.577
+!MESSAGE No projects found for [/Users/elijahfreestone/Desktop/Java1/Java1Project4/src/com/elijahfreestone/java1project4/MainActivity.java]
