@@ -65,47 +65,11 @@ public class MainActivity extends Activity {
 		currentArray = getResources().getStringArray(R.array.current_forecast);
 		//Grab main url string from resources
 		mainURLString = myContext.getString(R.string.mainURLString);
-				
-//		//Create linear layout instance
-//		LinearLayout myLayout = new LinearLayout(this);
-//		//Set orientation
-//		myLayout.setOrientation(LinearLayout.VERTICAL);
-//		//Set my layout parameters to match the parent item
-//		myLayout.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
-//				        
-//		//Create center params used to center various items
-//		LinearLayout.LayoutParams centerParams = new LinearLayout.LayoutParams(
-//				                LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
-//		//Set gravity to center
-//		centerParams.gravity = Gravity.CENTER;
-
-//		//Create title text view
-//		TextView titleView = new TextView(this);
-//		//Set text appearance for title
-//		titleView.setTextAppearance(this, android.R.attr.textAppearanceLarge);
-//		//Set text for title from resources
-//		titleView.setText(R.string.titleString);
-//		//Add title with centered params
-//	    myLayout.addView(titleView, centerParams);
-		
-		//TextView titleView = (TextView) findViewById(R.id.titleView);
 		        
 	    //Create city spinner adapter
 	    ArrayAdapter<String> citySpinnerAdapter = new ArrayAdapter<String>(myContext, android.R.layout.simple_spinner_item, citiesArray);
 	  	//Set dropdown of city spinner
      	citySpinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-		      		
-//      	//Create city spinner
-//      	Spinner citySpinner = new Spinner(myContext);
-//      	//Set adapter
-//	   	citySpinner.setAdapter(citySpinnerAdapter);
-//	   	//Create city spinner params
-//    	LayoutParams spinnerParams = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
-//    	Set params
-//      	citySpinner.setLayoutParams(spinnerParams);
-//      	//Add spinner to my layout
-//	   	myLayout.addView(citySpinner);
-     	
      	
      	//Create city spinner from layout xml and set adapter
      	Spinner citySpinner = (Spinner) findViewById(R.id.citySpinner);
@@ -151,37 +115,6 @@ public class MainActivity extends Activity {
 				cityURLString = myContext.getString(R.string.lovelandString);	
 			}
 		});
-		      	
-//      	//Create measurement title text view
-//      	final TextView measureTitleView = new TextView(this);
-//      	//Set text appearance for title
-//      	measureTitleView.setTextAppearance(this, android.R.attr.textAppearanceLarge);
-//   		//Set text for title from resources
-//      	measureTitleView.setText(R.string.measureTitleString);
-//        //Add title with centered params
-//        myLayout.addView(measureTitleView, centerParams);
-      	
-      	//TextView measureTitleView = (TextView) findViewById(R.id.measureTitleView);
-      	
-//      	//Create fahrenheit radio
-//      	RadioButton fahrenheitRadio = new RadioButton(myContext);
-//      	//Set text to fahrenheit from resources
-//      	fahrenheitRadio.setText(R.string.fahrenheitString);
-//      	//Create celsius radio
-//      	RadioButton celsiusRadio = new RadioButton(myContext);
-//      	//Set text to celsius from resources
-//      	celsiusRadio.setText(R.string.celsiusString);
-//      	//Create radio group
-//      	RadioGroup tempUnitRadioGroup = new RadioGroup(myContext);
-//      	//Add radio buttons to group
-//      	tempUnitRadioGroup.addView(fahrenheitRadio, spinnerParams);
-//      	tempUnitRadioGroup.addView(celsiusRadio, spinnerParams);
-//      	//Set group orientation
-//      	tempUnitRadioGroup.setOrientation(LinearLayout.HORIZONTAL);
-//      	//Set default checked to fahrenheit
-//      	tempUnitRadioGroup.check(fahrenheitRadio.getId());
-//      	//Set params for radio group
-//      	myLayout.addView(tempUnitRadioGroup, centerParams);
         
       	//Create radio group from layout xml to grab selection
         RadioGroup tempUnitRadioGroup = (RadioGroup) findViewById(R.id.tempUnitRadioGroup);
@@ -217,15 +150,6 @@ public class MainActivity extends Activity {
       	//Set dropdown of current spinner
       	currentSpinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item); //simple_list_item_single_choice
       	
-//      	//Create current spinner
-//      	Spinner currentSpinner = new Spinner(myContext);
-//      	//Set adapter
-//      	currentSpinner.setAdapter(currentSpinnerAdapter);
-//      	//Set layout params
-//      	currentSpinner.setLayoutParams(spinnerParams);
-//      	//Add current spinner to my layout
-//      	myLayout.addView(currentSpinner);
-      	
       	//Create current spinner from layout xml and set adapter
       	Spinner currentSpinner = (Spinner) findViewById(R.id.currentSpinner);
       	currentSpinner.setAdapter(currentSpinnerAdapter);
@@ -257,22 +181,10 @@ public class MainActivity extends Activity {
 				callURLModString = myContext.getString(R.string.conditionsURLString);
 			}
 		});
-		      	
-//	   	//Create get weather button
-//      	Button weatherButton = new Button(this);
-//	    //Set button text
-//        weatherButton.setText(R.string.weatherButtonString);
-//        //Set width of the button
-//        weatherButton.setWidth(500);
-//        //Add button to my layout with centered params
-//        myLayout.addView(weatherButton, centerParams);
       	
       	//Create weather button from layout xml
       	Button weatherButton = (Button) findViewById(R.id.weatherButton);
       	//weatherButton.setBackgroundResource(R.drawable.round_button);
-      	
-//      	final ImageView weatherIcon = (ImageView) findViewById(R.id.weatherIcon);
-//      	weatherIcon.setImageResource(R.drawable.logo_130x80);
       	
       	final LinearLayout inflateView = (LinearLayout) findViewById(R.id.parentView);
 		LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -290,7 +202,6 @@ public class MainActivity extends Activity {
 				
 				//Check network connection
 				if (NetworkConnection.connectionStatus(myContext)) {
-					
 					//displayTempView.setText("Yay it works!!");
 					//Create instance of get data class which is located in NetworkConnection.jar
 					getData data = new getData();
@@ -302,12 +213,10 @@ public class MainActivity extends Activity {
 						//Set bool to true
 						viewInflated = true;
 						inflateView.addView(myView); 
-						//displayTempView.setTextColor(Color.parseColor("#1919FF"));
 						//Change style of displayed temp/forecast
 						displayTempView.setTextAppearance(myContext, R.style.displayStyle);
 					}
 				} else {
-					//viewInflated = false;
 					//Create alert dialog for no connection
 					AlertDialog alertDialog = new AlertDialog.Builder(MainActivity.this).create();
 					// Set dialog title to Connection Error
@@ -321,15 +230,6 @@ public class MainActivity extends Activity {
 				}
 			}
 		});
-		      	
-//        //Create measurement title text view
-//      	displayTempView = new TextView(this);
-//      	//Set text appearance for title
-//      	displayTempView.setTextAppearance(this, android.R.attr.textAppearanceLarge);
-//   		//Set text for title from resources
-//      	displayTempView.setText(R.string.displayTempString);
-//        //Add title with centered params
-//        myLayout.addView(displayTempView, centerParams);
         
         //Set display temp view from layout xml to allow adding json results
         displayTempView = (TextView) findViewById(R.id.displayTempView);

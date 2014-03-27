@@ -5,18 +5,14 @@
 
 package com.elijahfreestone.java1project4;
 
-import com.elijahfreestone.cities.NetworkConnection;
-import com.elijahfreestone.cities.NetworkConnection.getData;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.ViewGroup.LayoutParams;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
@@ -27,6 +23,9 @@ import android.widget.RadioGroup;
 import android.widget.RadioGroup.OnCheckedChangeListener;
 import android.widget.Spinner;
 import android.widget.TextView;
+
+import com.elijahfreestone.cities.NetworkConnection;
+import com.elijahfreestone.cities.NetworkConnection.getData;
 
 public class MainActivity extends Activity {
 	//Declare context
@@ -67,18 +66,18 @@ public class MainActivity extends Activity {
 		//Grab main url string from resources
 		mainURLString = myContext.getString(R.string.mainURLString);
 				
-		//Create linear layout instance
-		LinearLayout myLayout = new LinearLayout(this);
-		//Set orientation
-		myLayout.setOrientation(LinearLayout.VERTICAL);
-		//Set my layout parameters to match the parent item
-		myLayout.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
-				        
-		//Create center params used to center various items
-		LinearLayout.LayoutParams centerParams = new LinearLayout.LayoutParams(
-				                LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
-		//Set gravity to center
-		centerParams.gravity = Gravity.CENTER;
+//		//Create linear layout instance
+//		LinearLayout myLayout = new LinearLayout(this);
+//		//Set orientation
+//		myLayout.setOrientation(LinearLayout.VERTICAL);
+//		//Set my layout parameters to match the parent item
+//		myLayout.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
+//				        
+//		//Create center params used to center various items
+//		LinearLayout.LayoutParams centerParams = new LinearLayout.LayoutParams(
+//				                LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+//		//Set gravity to center
+//		centerParams.gravity = Gravity.CENTER;
 
 //		//Create title text view
 //		TextView titleView = new TextView(this);
@@ -107,6 +106,8 @@ public class MainActivity extends Activity {
 //      	//Add spinner to my layout
 //	   	myLayout.addView(citySpinner);
      	
+     	
+     	//Create city spinner from layout xml and set adapter
      	Spinner citySpinner = (Spinner) findViewById(R.id.citySpinner);
      	citySpinner.setAdapter(citySpinnerAdapter);
 		      	
@@ -214,7 +215,7 @@ public class MainActivity extends Activity {
       	//Create current/forecast spinner adapter
       	ArrayAdapter<String> currentSpinnerAdapter = new ArrayAdapter<String>(myContext, android.R.layout.simple_spinner_item, currentArray);
       	//Set dropdown of current spinner
-      	currentSpinnerAdapter.setDropDownViewResource(android.R.layout.simple_list_item_single_choice);
+      	currentSpinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item); //simple_list_item_single_choice
       	
 //      	//Create current spinner
 //      	Spinner currentSpinner = new Spinner(myContext);
@@ -268,9 +269,19 @@ public class MainActivity extends Activity {
       	
       	//Create weather button from layout xml
       	Button weatherButton = (Button) findViewById(R.id.weatherButton);
+      	//weatherButton.setBackgroundResource(R.drawable.round_button);
+      	
+//      	final ImageView weatherIcon = (ImageView) findViewById(R.id.weatherIcon);
+//      	weatherIcon.setImageResource(R.drawable.logo_130x80);
+      	
+      	final LinearLayout inflateView = (LinearLayout) findViewById(R.id.parentView);
+		LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+		final View myView = inflater.inflate(R.layout.icon_layout, null);
         
         //Create onClick event for weather button
         weatherButton.setOnClickListener(new OnClickListener() {
+        	//Create bool for use in checking if inflateView has been added
+        	Boolean viewInflated = false;
 				
 			@Override
 			public void onClick(View v) {
@@ -279,12 +290,24 @@ public class MainActivity extends Activity {
 				
 				//Check network connection
 				if (NetworkConnection.connectionStatus(myContext)) {
+					
 					//displayTempView.setText("Yay it works!!");
 					//Create instance of get data class which is located in NetworkConnection.jar
 					getData data = new getData();
 					//Call get data and pass the full URL for the api call
 					data.execute(fullURLString);
+					
+					//Check viewInflated bool
+					if (viewInflated == false) {
+						//Set bool to true
+						viewInflated = true;
+						inflateView.addView(myView); 
+						//displayTempView.setTextColor(Color.parseColor("#1919FF"));
+						//Change style of displayed temp/forecast
+						displayTempView.setTextAppearance(myContext, R.style.displayStyle);
+					}
 				} else {
+					//viewInflated = false;
 					//Create alert dialog for no connection
 					AlertDialog alertDialog = new AlertDialog.Builder(MainActivity.this).create();
 					// Set dialog title to Connection Error

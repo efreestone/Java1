@@ -68,8 +68,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:width="250dp"
-            android:text="@string/weatherButtonString"
-            />
+            android:text="@string/weatherButtonString"/>
         
 	<!-- </LinearLayout> -->
 	

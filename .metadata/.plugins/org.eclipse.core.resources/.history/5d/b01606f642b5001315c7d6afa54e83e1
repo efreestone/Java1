@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/parentView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical"> <!-- style="@style/backgroundStyle" -->
     
     <!-- Top Linear Layout with controls -->
     <!-- <LinearLayout 
@@ -38,7 +39,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:orientation="horizontal" >
+            android:orientation="horizontal">
 
             <RadioButton
                 android:id="@+id/fahrenheitRadio"
@@ -58,9 +59,7 @@
         <Spinner 
             android:id="@+id/currentSpinner"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:dropDownVerticalOffset="-45dp"
-            android:popupBackground="@android:color/darker_gray"/>
+            android:layout_height="wrap_content"/>
         
         <!-- Get Weather Button -->
         <Button 
@@ -69,7 +68,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:width="250dp"
-            android:text="@string/weatherButtonString"/>
+            android:text="@string/weatherButtonString"
+            />
         
 	<!-- </LinearLayout> -->
 	
@@ -86,15 +86,19 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="@string/displayTempString"/>
+            android:text="@string/displayTempString"
+            style="@style/labelStyle"/>
         
-        <ImageView 
-            android:id="weatherIcon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"/>
+       <TextView 
+           android:id="@+id/dayOne"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"/>
+       
+       <TextView 
+           android:id="@+id/tempOne"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"/>
         
 	</GridLayout>
-        
 
 </LinearLayout>
