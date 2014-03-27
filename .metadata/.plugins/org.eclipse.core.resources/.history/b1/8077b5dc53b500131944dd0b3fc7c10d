@@ -202,6 +202,7 @@ public class MainActivity extends Activity {
 				
 				//Check network connection
 				if (NetworkConnection.connectionStatus(myContext)) {
+					
 					//displayTempView.setText("Yay it works!!");
 					//Create instance of get data class which is located in NetworkConnection.jar
 					getData data = new getData();
@@ -232,6 +233,15 @@ public class MainActivity extends Activity {
 				}
 			}
 		});
+		      	
+//        //Create measurement title text view
+//      	displayTempView = new TextView(this);
+//      	//Set text appearance for title
+//      	displayTempView.setTextAppearance(this, android.R.attr.textAppearanceLarge);
+//   		//Set text for title from resources
+//      	displayTempView.setText(R.string.displayTempString);
+//        //Add title with centered params
+//        myLayout.addView(displayTempView, centerParams);
         
         //Set display temp view from layout xml to allow adding json results
         displayTempView = (TextView) findViewById(R.id.displayTempView);

@@ -181,10 +181,22 @@ public class MainActivity extends Activity {
 				callURLModString = myContext.getString(R.string.conditionsURLString);
 			}
 		});
+		      	
+//	   	//Create get weather button
+//      	Button weatherButton = new Button(this);
+//	    //Set button text
+//        weatherButton.setText(R.string.weatherButtonString);
+//        //Set width of the button
+//        weatherButton.setWidth(500);
+//        //Add button to my layout with centered params
+//        myLayout.addView(weatherButton, centerParams);
       	
       	//Create weather button from layout xml
       	Button weatherButton = (Button) findViewById(R.id.weatherButton);
       	//weatherButton.setBackgroundResource(R.drawable.round_button);
+      	
+//      	final ImageView weatherIcon = (ImageView) findViewById(R.id.weatherIcon);
+//      	weatherIcon.setImageResource(R.drawable.logo_130x80);
       	
       	final LinearLayout inflateView = (LinearLayout) findViewById(R.id.parentView);
 		LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -202,6 +214,7 @@ public class MainActivity extends Activity {
 				
 				//Check network connection
 				if (NetworkConnection.connectionStatus(myContext)) {
+					
 					//displayTempView.setText("Yay it works!!");
 					//Create instance of get data class which is located in NetworkConnection.jar
 					getData data = new getData();
@@ -232,6 +245,15 @@ public class MainActivity extends Activity {
 				}
 			}
 		});
+		      	
+//        //Create measurement title text view
+//      	displayTempView = new TextView(this);
+//      	//Set text appearance for title
+//      	displayTempView.setTextAppearance(this, android.R.attr.textAppearanceLarge);
+//   		//Set text for title from resources
+//      	displayTempView.setText(R.string.displayTempString);
+//        //Add title with centered params
+//        myLayout.addView(displayTempView, centerParams);
         
         //Set display temp view from layout xml to allow adding json results
         displayTempView = (TextView) findViewById(R.id.displayTempView);
