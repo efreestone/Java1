@@ -34,13 +34,6 @@
         <style name="buttonStyle">
             <item name="android:background">#EFEFEF</item>
             <item name="android:textColor">#212121</item>
-            <item name="android:textStyle">bold</item>
-            <item name="android:textSize">20sp</item>
-        </style>
-        
-        <style name="inflatedStyle">
-            <item name="android:background">#EFEFEF</item>
-            <item name="android:padding">5dp</item>
         </style>
 
 </resources>
