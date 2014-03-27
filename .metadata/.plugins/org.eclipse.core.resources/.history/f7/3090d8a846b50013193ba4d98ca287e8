@@ -57,7 +57,6 @@ public class MainActivity extends Activity {
 		
 		setContentView(R.layout.activity_main);
 		
-		
 		//Initialize context and cities array
 		myContext = this;
 		//Grab cities array from strings.xml resource file
