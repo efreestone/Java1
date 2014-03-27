@@ -69,7 +69,7 @@ android:orientation="horizontal"> -->
             android:layout_gravity="center"
             android:width="250dp"
             android:text="@string/weatherButtonString"
-            />
+            style="@style/buttonStyle"/>
         
 <!-- </LinearLayout> -->
 
