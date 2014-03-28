@@ -70,18 +70,17 @@ android:orientation="horizontal"> -->
             android:width="250dp"
             android:text="@string/weatherButtonString"
             android:layout_margin="5dp"
-            android:background="@drawable/button_background"
-            android:clickable="true"
+            android:background="@drawable/gradient_9patch"
             style="@style/buttonStyle"/>
         
 <!-- </LinearLayout> -->
 
-	<!-- Bottom Gridlayout for temp display -->
-	<GridLayout
-	android:id="@+id/tempGrid"
-	android:layout_width="match_parent"
-	android:layout_height="wrap_content"
-	android:columnCount="2">
+<!-- Bottom Gridlayout for temp display -->
+<GridLayout
+android:id="@+id/tempGrid"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:columnCount="2">
         
         <!-- Display Temp -->
         <TextView
@@ -92,6 +91,16 @@ android:orientation="horizontal"> -->
             android:text="@string/displayTempString"
             style="@style/labelStyle"/>
         
-	</GridLayout>
+       <TextView
+           android:id="@+id/dayOne"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"/>
+       
+       <TextView
+           android:id="@+id/tempOne"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"/>
+        
+</GridLayout>
 
 </LinearLayout>

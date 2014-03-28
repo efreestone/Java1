@@ -70,7 +70,7 @@ android:orientation="horizontal"> -->
             android:width="250dp"
             android:text="@string/weatherButtonString"
             android:layout_margin="5dp"
-            android:background="@drawable/button_background"
+            android:background="@drawable/gradient_9patch"
             android:clickable="true"
             style="@style/buttonStyle"/>
         
