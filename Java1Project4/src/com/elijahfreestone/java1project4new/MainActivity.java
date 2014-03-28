@@ -144,7 +144,6 @@ public class MainActivity extends Activity {
 			}
 		});
       	
-      	
       	//Create current/forecast spinner adapter
       	ArrayAdapter<String> currentSpinnerAdapter = new ArrayAdapter<String>(myContext, android.R.layout.simple_spinner_item, currentArray);
       	//Set dropdown of current spinner
@@ -184,7 +183,6 @@ public class MainActivity extends Activity {
       	
       	//Create weather button from layout xml
       	Button weatherButton = (Button) findViewById(R.id.weatherButton);
-      	//weatherButton.setBackgroundResource(R.drawable.round_button);
       	
       	final LinearLayout inflateView = (LinearLayout) findViewById(R.id.parentView);
 		LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -213,7 +211,6 @@ public class MainActivity extends Activity {
 						//Set bool to true
 						viewInflated = true;
 						inflateView.addView(myView); 
-						//displayTempView.setTextColor(Color.parseColor("#1919FF"));
 						//Change style of displayed temp/forecast
 						displayTempView.setTextAppearance(myContext, R.style.displayStyle);
 					}
@@ -235,9 +232,7 @@ public class MainActivity extends Activity {
         
         //Set display temp view from layout xml to allow adding json results
         displayTempView = (TextView) findViewById(R.id.displayTempView);
-	      	
-        //Override xml layout with my linear layout
-		//setContentView(myLayout); 
+
 		//setContentView(R.layout.activity_main);
 	}
 }
