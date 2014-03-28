@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="com.elijahfreestone.java1project2.R.string"/>
 <fullyQualifiedTypeName name="com.elijahfreestone.java1project2.MainActivity"/>
 <fullyQualifiedTypeName name="java.lang.Object"/>
 <fullyQualifiedTypeName name="android.widget.GridView"/>
@@ -60,4 +59,5 @@
 <fullyQualifiedTypeName name="java.net.MalformedURLException"/>
 <fullyQualifiedTypeName name="android.view.Gravity"/>
 <fullyQualifiedTypeName name="com.elijahfreestone.cities.CitiesJSON"/>
+<fullyQualifiedTypeName name="android.widget.ImageButton"/>
 </qualifiedTypeNameHistroy>
