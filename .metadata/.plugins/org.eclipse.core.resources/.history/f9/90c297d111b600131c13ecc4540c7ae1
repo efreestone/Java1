@@ -7,6 +7,7 @@
     
     <!-- Top Section with controls -->
     <!-- Title -->
+
     <TextView
         style="@style/labelStyle"
         android:layout_width="match_parent"
@@ -15,12 +16,14 @@
         android:text="@string/titleString" />
 
     <!-- City Spinner -->
+
     <Spinner
         android:id="@+id/citySpinner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
     <!-- Measurement Title -->
+
     <TextView
         style="@style/labelStyle"
         android:layout_width="match_parent"
@@ -29,6 +32,7 @@
         android:text="@string/measureTitleString" />
 
     <!-- Measurement Radio Buttons -->
+
     <RadioGroup
         android:id="@+id/tempUnitRadioGroup"
         android:layout_width="wrap_content"
@@ -51,12 +55,14 @@
     </RadioGroup>
 
     <!-- Current Spinner -->
+
     <Spinner
         android:id="@+id/currentSpinner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
     <!-- Get Weather Button -->
+
     <Button
         android:id="@+id/weatherButton"
         style="@style/buttonStyle"
@@ -70,11 +76,11 @@
         android:width="250dp" />
 
 	<!-- Bottom Gridlayout for temp display -->
-	<!-- <GridLayout
+	<GridLayout
 	android:id="@+id/tempGrid"
 	android:layout_width="match_parent"
 	android:layout_height="wrap_content"
-	android:columnCount="2"> -->
+	android:columnCount="2">
         
         <!-- Display Temp -->
         <TextView
@@ -85,6 +91,6 @@
             android:text="@string/displayTempString"
             style="@style/labelStyle"/>
         
-	<!-- </GridLayout> -->
+	</GridLayout>
 
 </LinearLayout>
